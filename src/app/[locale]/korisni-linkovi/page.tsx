@@ -15,8 +15,9 @@ export default function UsefulLinksPage() {
   const t = useTranslations('usefulLinks')
   return (
     <>
-      <PageHero title={t('title')} />
-      <section className="py-20 bg-white">
+      <PageHero title={t('title')}
+        label="Linkovi" />
+      <section className="py-20" style={{backgroundColor: "var(--light)"}}>
         <div className="max-w-2xl mx-auto px-6">
           <div className="space-y-4">
             {LINKS.map((link, i) => (

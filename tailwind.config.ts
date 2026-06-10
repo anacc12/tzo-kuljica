@@ -10,8 +10,8 @@ const config: Config = {
     extend: {
       colors: {
         forest: {
-          950: '#0A1205',
-          900: '#111F08',
+          950: '#0D160A',
+          900: '#16231b',  // Franco's --dark (slightly warmer)
           800: '#1A2F0E',  // Navbar background
           700: '#243C14',
           600: '#2F4D1A',
@@ -19,7 +19,7 @@ const config: Config = {
         },
         olive: {
           700: '#6B5A1F',
-          600: '#8B7427',  // Card/accent gold
+          600: '#8B7427',
           500: '#A68B2F',
           400: '#C4A83D',
           300: '#D4BC5C',
@@ -27,33 +27,65 @@ const config: Config = {
           100: '#F5EDCA',
         },
         sand: {
-          100: '#F9F5EE',
-          200: '#F0E8D8',
+          50:  '#FDFBF7',  // Nearly white warm
+          100: '#F9F5EB',  // Franco's --light (exact match)
+          200: '#ECE7D9',  // Franco's --bg
           300: '#E2D4BF',
+          400: '#C8B99A',
         },
+        cream: '#F9F5EB',
       },
       fontFamily: {
-        display: ['var(--font-cormorant)', 'Georgia', 'serif'],
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        display: ['Instrument Serif', 'Georgia', 'serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['Geist Mono', 'monospace'],
       },
       fontSize: {
-        '7xl': ['4.5rem', { lineHeight: '1.05' }],
-        '8xl': ['6rem', { lineHeight: '1' }],
-        '9xl': ['8rem', { lineHeight: '0.95' }],
+        '7xl': ['4.5rem',  { lineHeight: '1.05', letterSpacing: '-0.02em' }],
+        '8xl': ['6rem',    { lineHeight: '1',    letterSpacing: '-0.025em' }],
+        '9xl': ['8rem',    { lineHeight: '0.95', letterSpacing: '-0.03em' }],
+        '10xl': ['10rem',  { lineHeight: '0.9',  letterSpacing: '-0.03em' }],
+      },
+      spacing: {
+        '18': '4.5rem',
+        '22': '5.5rem',
+        '26': '6.5rem',
+        '30': '7.5rem',
+      },
+      transitionTimingFunction: {
+        'expo-out':  'cubic-bezier(0.16, 1, 0.3, 1)',
+        'expo-in-out': 'cubic-bezier(0.45, 0, 0.55, 1)',
+        'smooth': 'cubic-bezier(0.22, 1, 0.36, 1)',
+      },
+      transitionDuration: {
+        '400': '400ms',
+        '600': '600ms',
+        '800': '800ms',
+        '900': '900ms',
       },
       animation: {
-        'fade-up': 'fadeUp 0.7s ease forwards',
-        'fade-in': 'fadeIn 1s ease forwards',
+        'fade-up':   'fadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        'fade-in':   'fadeIn 0.65s ease forwards',
+        'slide-up':  'slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards',
       },
       keyframes: {
         fadeUp: {
-          '0%': { opacity: '0', transform: 'translateY(30px)' },
+          '0%':   { opacity: '0', transform: 'translateY(40px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         fadeIn: {
-          '0%': { opacity: '0' },
+          '0%':   { opacity: '0' },
           '100%': { opacity: '1' },
         },
+        slideUp: {
+          '0%':   { transform: 'translateY(100%)', opacity: '0' },
+          '100%': { transform: 'translateY(0)',    opacity: '1' },
+        },
+      },
+      letterSpacing: {
+        'tighter': '-0.04em',
+        'tight':   '-0.02em',
+        'display': '-0.025em',
       },
     },
   },

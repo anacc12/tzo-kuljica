@@ -6,8 +6,9 @@ export default function TimetablePage() {
   const t = useTranslations('timetable')
   return (
     <>
-      <PageHero title={t('title')} subtitle={t('heroSubtitle')} />
-      <section className="py-20 bg-white">
+      <PageHero title={t('title')} subtitle={t('heroSubtitle')}
+        label="Vozni red" />
+      <section className="py-20" style={{backgroundColor: "var(--light)"}}>
         <div className="max-w-2xl mx-auto px-6">
           <FadeIn>
             <p className="text-xs font-semibold tracking-[0.3em] uppercase text-olive-600 mb-6">{t('linksTitle')}</p>

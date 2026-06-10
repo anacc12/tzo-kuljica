@@ -6,8 +6,9 @@ export default function OfficialDocsPage() {
   const t = useTranslations('officialDocs')
   return (
     <>
-      <PageHero title={t('title')} subtitle={t('heroSubtitle')} />
-      <section className="py-20 bg-white">
+      <PageHero title={t('title')} subtitle={t('heroSubtitle')}
+        label="Dokumenti" />
+      <section className="py-20" style={{backgroundColor: "var(--light)"}}>
         <div className="max-w-3xl mx-auto px-6">
           <FadeIn>
             <p className="text-forest-600/60">Dokumenti će biti dostupni uskoro.</p>

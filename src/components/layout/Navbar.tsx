@@ -1,9 +1,9 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { useParams } from 'next/navigation'
 import { useTranslations, useLocale } from 'next-intl'
+import { Link, usePathname } from '@/i18n/navigation'
 import { Menu, X, ChevronDown, Globe } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { cn } from '@/lib/utils'
@@ -20,11 +20,11 @@ export default function Navbar() {
   const t = useTranslations('nav')
   const locale = useLocale()
   const pathname = usePathname()
+  // Strip `locale` from params — next-intl handles it separately
+  const { locale: _locale, ...routeParams } = useParams() as Record<string, string>
   const [mobileOpen, setMobileOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [scrolled, setScrolled] = useState(false)
-
-  const prefix = locale === 'en' ? '/en' : ''
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -41,155 +41,253 @@ export default function Navbar() {
     {
       label: t('aboutUs'),
       dropdown: [
-        { label: t('about'), href: `${prefix}/o-nama` },
-        { label: t('howToGetHere'), href: `${prefix}/kako-do-nas` },
-        { label: t('landmarks'), href: `${prefix}/znamenitosti` },
-        { label: t('beaches'), href: `${prefix}/plaze` },
+        { label: t('about'), href: '/o-nama' },
+        { label: t('howToGetHere'), href: '/kako-do-nas' },
+        { label: t('landmarks'), href: '/znamenitosti' },
+        { label: t('beaches'), href: '/plaze' },
       ],
     },
-    { label: t('events'), href: `${prefix}/dogadanja` },
+    { label: t('events'), href: '/dogadanja' },
     {
       label: t('activeVacation'),
       dropdown: [
-        { label: t('activeVacationGeneral'), href: `${prefix}/aktivni-odmor` },
-        { label: t('nautics'), href: `${prefix}/aktivni-odmor/nautika` },
-        { label: t('cycling'), href: `${prefix}/aktivni-odmor/biciklizam` },
-        { label: t('hiking'), href: `${prefix}/aktivni-odmor/pjesacenje` },
-        { label: t('trips'), href: `${prefix}/aktivni-odmor/izleti` },
+        { label: t('activeVacationGeneral'), href: '/aktivni-odmor' },
+        { label: t('nautics'), href: '/aktivni-odmor/nautika' },
+        { label: t('cycling'), href: '/aktivni-odmor/biciklizam' },
+        { label: t('hiking'), href: '/aktivni-odmor/pjesacenje' },
+        { label: t('trips'), href: '/aktivni-odmor/izleti' },
       ],
     },
     {
       label: t('accommodation'),
       dropdown: [
-        { label: t('zelenaPoint'), href: `${prefix}/holiday-park-zelena-punta` },
-        { label: t('privateAccommodation'), href: `${prefix}/privatni-smjestaj` },
+        { label: t('zelenaPoint'), href: '/holiday-park-zelena-punta' },
+        { label: t('privateAccommodation'), href: '/privatni-smjestaj' },
       ],
     },
     {
       label: t('info'),
       dropdown: [
-        { label: t('rentersCorner'), href: `${prefix}/kutak-za-iznajmljivace` },
-        { label: t('ownersCorner'), href: `${prefix}/kutak-za-vlasnike` },
-        { label: t('timetable'), href: `${prefix}/vozni-red` },
-        { label: t('newsAndNotices'), href: `${prefix}/novosti-obavijesti-i-natjecaji` },
-        { label: t('additional'), href: `${prefix}/dodatno` },
+        { label: t('rentersCorner'), href: '/kutak-za-iznajmljivace' },
+        { label: t('ownersCorner'), href: '/kutak-za-vlasnike' },
+        { label: t('timetable'), href: '/vozni-red' },
+        { label: t('newsAndNotices'), href: '/novosti-obavijesti-i-natjecaji' },
+        { label: t('additional'), href: '/dodatno' },
       ],
     },
   ]
 
   const otherLocale = locale === 'hr' ? 'en' : 'hr'
-  const otherLocalePath = locale === 'hr'
-    ? `/en${pathname}`
-    : pathname.replace(/^\/en/, '') || '/'
 
   return (
     <nav
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        scrolled ? 'bg-forest-800/98 shadow-lg' : 'bg-forest-800'
-      )}
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 50,
+        backgroundColor: 'var(--dark)',
+      }}
     >
-      {/* Top utility bar */}
-      <div className="border-b border-white/10 hidden lg:block">
-        <div className="max-w-7xl mx-auto px-6 flex justify-end items-center h-8 gap-4 text-xs text-white/60">
-          <Link href={`${prefix}/kutak-za-iznajmljivace`} className="hover:text-white transition-colors">{t('rentersCorner')}</Link>
-          <span className="text-white/30">|</span>
-          <Link href={`${prefix}/kutak-za-vlasnike`} className="hover:text-white transition-colors">{t('ownersCorner')}</Link>
-          <span className="text-white/30">|</span>
-          <Link href={`${prefix}/vozni-red`} className="hover:text-white transition-colors">{t('timetable')}</Link>
-          <span className="text-white/30">|</span>
-          <Link href={`${prefix}/novosti-obavijesti-i-natjecaji`} className="hover:text-white transition-colors">{t('newsAndNotices')}</Link>
-          <span className="text-white/30">|</span>
-          <Link href={`${prefix}/dodatno`} className="hover:text-white transition-colors">{t('additional')}</Link>
-        </div>
-      </div>
+      <div
+        style={{
+          maxWidth: 1800,
+          margin: '0 auto',
+          padding: '0 32px',
+          height: scrolled ? 56 : 72,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          transition: 'height 0.3s ease',
+        }}
+      >
+        {/* Logo */}
+        <Link href="/" style={{ flexShrink: 0 }}>
+          <div
+            style={{
+              width: 36,
+              height: 36,
+              backgroundColor: '#8B7427',
+              borderRadius: 4,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <span
+              style={{
+                color: 'white',
+                fontFamily: 'Instrument Serif, Georgia, serif',
+                fontWeight: 400,
+                fontSize: 18,
+              }}
+            >
+              K
+            </span>
+          </div>
+        </Link>
 
-      {/* Main navbar */}
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href={`${prefix}/`} className="flex-shrink-0">
-            <div className="w-10 h-10 bg-olive-600 rounded flex items-center justify-center">
-              <span className="text-white font-display font-bold text-lg">K</span>
+        {/* Desktop nav — centered */}
+        <div className="hidden lg:flex items-center" style={{ gap: 4 }}>
+          {navItems.map((item) => (
+            <div
+              key={item.label}
+              style={{ position: 'relative' }}
+              onMouseEnter={() => item.dropdown && setActiveDropdown(item.label)}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              {item.href ? (
+                <Link
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  href={item.href as any}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 4,
+                    padding: '8px 12px',
+                    fontFamily: 'Inter, sans-serif',
+                    fontSize: 13,
+                    fontWeight: 400,
+                    letterSpacing: '0.01em',
+                    color: 'rgba(249,245,235,0.7)',
+                    textDecoration: 'none',
+                    transition: 'color 0.2s',
+                  }}
+                  onMouseEnter={e => (e.currentTarget.style.color = 'var(--light)')}
+                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(249,245,235,0.7)')}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <button
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 4,
+                    padding: '8px 12px',
+                    fontFamily: 'Inter, sans-serif',
+                    fontSize: 13,
+                    fontWeight: 400,
+                    letterSpacing: '0.01em',
+                    color: 'rgba(249,245,235,0.7)',
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    transition: 'color 0.2s',
+                  }}
+                >
+                  {item.label}
+                  <ChevronDown style={{ width: 12, height: 12, opacity: 0.5 }} />
+                </button>
+              )}
+
+              <AnimatePresence>
+                {item.dropdown && activeDropdown === item.label && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 6 }}
+                    transition={{ duration: 0.15 }}
+                    style={{
+                      position: 'absolute',
+                      top: '100%',
+                      left: 0,
+                      marginTop: 4,
+                      backgroundColor: '#1a2f0e',
+                      border: '1px solid rgba(249,245,235,0.1)',
+                      borderRadius: 4,
+                      minWidth: 200,
+                      padding: '8px 0',
+                      boxShadow: '0 16px 48px rgba(0,0,0,0.3)',
+                    }}
+                  >
+                    {item.dropdown.map((sub) => (
+                      <Link
+                        key={sub.href}
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        href={sub.href as any}
+                        style={{
+                          display: 'block',
+                          padding: '8px 16px',
+                          fontFamily: 'Inter, sans-serif',
+                          fontSize: 13,
+                          color: 'rgba(249,245,235,0.65)',
+                          textDecoration: 'none',
+                          transition: 'color 0.15s',
+                        }}
+                        onMouseEnter={e => (e.currentTarget.style.color = 'var(--light)')}
+                        onMouseLeave={e => (e.currentTarget.style.color = 'rgba(249,245,235,0.65)')}
+                      >
+                        {sub.label}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
+          ))}
+        </div>
+
+        {/* Right: language + contact button */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          {/* Language */}
+          <Link
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            href={{ pathname, params: routeParams } as any}
+            locale={otherLocale}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 6,
+              fontFamily: 'Inter, sans-serif',
+              fontSize: 12,
+              fontWeight: 500,
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              color: 'rgba(249,245,235,0.55)',
+              textDecoration: 'none',
+              transition: 'color 0.2s',
+            }}
+            onMouseEnter={e => (e.currentTarget.style.color = 'var(--light)')}
+            onMouseLeave={e => (e.currentTarget.style.color = 'rgba(249,245,235,0.55)')}
+          >
+            <Globe style={{ width: 14, height: 14 }} />
+            {otherLocale}
+          </Link>
+          <Link
+            href="/kontakt"
+            className="hidden lg:flex"
+            style={{
+              alignItems: 'center',
+              backgroundColor: 'var(--light)',
+              color: 'var(--dark)',
+              padding: '9px 20px',
+              borderRadius: 999,
+              fontFamily: 'Inter, sans-serif',
+              fontSize: 13,
+              fontWeight: 500,
+              textDecoration: 'none',
+              transition: 'opacity 0.2s',
+              whiteSpace: 'nowrap',
+            }}
+            onMouseEnter={e => (e.currentTarget.style.opacity = '0.85')}
+            onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
+          >
+            {t('contact')}
           </Link>
 
-          {/* Desktop nav */}
-          <div className="hidden lg:flex items-center gap-1">
-            {navItems.map((item) => (
-              <div
-                key={item.label}
-                className="relative"
-                onMouseEnter={() => item.dropdown && setActiveDropdown(item.label)}
-                onMouseLeave={() => setActiveDropdown(null)}
-              >
-                {item.href ? (
-                  <Link
-                    href={item.href}
-                    className="flex items-center gap-1 px-3 py-2 text-white/80 hover:text-white text-xs font-medium tracking-widest uppercase transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                ) : (
-                  <button className="flex items-center gap-1 px-3 py-2 text-white/80 hover:text-white text-xs font-medium tracking-widest uppercase transition-colors">
-                    {item.label}
-                    <ChevronDown className="w-3 h-3" />
-                  </button>
-                )}
-
-                <AnimatePresence>
-                  {item.dropdown && activeDropdown === item.label && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 8 }}
-                      transition={{ duration: 0.15 }}
-                      className="absolute top-full left-0 mt-1 bg-forest-900 border border-white/10 rounded-sm shadow-xl min-w-48 py-2"
-                    >
-                      {item.dropdown.map((sub) => (
-                        <Link
-                          key={sub.href}
-                          href={sub.href}
-                          className="block px-4 py-2 text-sm text-white/75 hover:text-white hover:bg-white/5 transition-colors"
-                        >
-                          {sub.label}
-                        </Link>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            ))}
-          </div>
-
-          {/* Right side: CTA + Lang + Mobile */}
-          <div className="flex items-center gap-3">
-            <Link
-              href={`${prefix}/o-nama`}
-              className="hidden lg:block bg-olive-600 hover:bg-olive-500 text-white text-xs font-semibold tracking-widest uppercase px-5 py-2.5 transition-colors"
-            >
-              {t('contact')}
-            </Link>
-
-            {/* Language switcher */}
-            <Link
-              href={otherLocalePath}
-              className="flex items-center gap-1.5 text-white/70 hover:text-white text-xs font-medium uppercase tracking-wider transition-colors"
-            >
-              <Globe className="w-3.5 h-3.5" />
-              {otherLocale}
-            </Link>
-
-            {/* Mobile hamburger */}
-            <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden text-white p-1"
-            >
-              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-          </div>
+          {/* Mobile hamburger */}
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="lg:hidden"
+            style={{ color: 'var(--light)', background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
+          >
+            {mobileOpen ? <X style={{ width: 20, height: 20 }} /> : <Menu style={{ width: 20, height: 20 }} />}
+          </button>
         </div>
       </div>
+      <div style={{ height: 1, backgroundColor: 'rgba(249,245,235,0.1)' }} />
 
       {/* Mobile menu */}
       <AnimatePresence>
@@ -245,12 +343,12 @@ export default function Navbar() {
               ))}
               <div className="pt-4 border-t border-white/10 flex items-center justify-between">
                 <Link
-                  href={`${prefix}/o-nama`}
+                  href="/kontakt"
                   className="bg-olive-600 text-white text-xs font-semibold tracking-widest uppercase px-5 py-2.5"
                 >
                   {t('contact')}
                 </Link>
-                <Link href={otherLocalePath} className="text-white/70 text-sm uppercase font-medium">
+                <Link href={pathname} locale={otherLocale} className="text-white/70 text-sm uppercase font-medium">
                   {otherLocale}
                 </Link>
               </div>

@@ -1,5 +1,5 @@
-import { useTranslations, useLocale } from 'next-intl'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import PageHero from '@/components/sections/PageHero'
 import FadeIn from '@/components/sections/FadeIn'
 
@@ -34,13 +34,12 @@ function getInitials(name: string) {
 
 export default function AccommodationPage() {
   const t = useTranslations('accommodation')
-  const locale = useLocale()
-  const prefix = locale === 'en' ? '/en' : ''
 
   return (
     <>
-      <PageHero title={t('title')} subtitle={t('heroSubtitle')} />
-      <section className="py-20 bg-white">
+      <PageHero title={t('title')} subtitle={t('heroSubtitle')}
+        label="Smještaj" />
+      <section className="py-20" style={{backgroundColor: "var(--light)"}}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {APARTMENTS.map((apt, i) => (
@@ -60,7 +59,7 @@ export default function AccommodationPage() {
                   <div className="p-5">
                     <h3 className="font-display text-xl font-semibold text-forest-800 mb-2">{apt.name}</h3>
                     <p className="text-sm text-forest-600/80 mb-4 line-clamp-2">{apt.summary}</p>
-                    <Link href={`${prefix}/privatni-smjestaj/${apt.slug}`}
+                    <Link href={`/privatni-smjestaj/${apt.slug}`}
                       className="inline-block w-full text-center bg-forest-800 hover:bg-forest-700 text-white text-sm font-medium py-2.5 transition-colors">
                       {t('viewDetails')}
                     </Link>

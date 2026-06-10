@@ -55,7 +55,14 @@
     "ctaAccommodation": "Accommodation",
     "ctaAccommodationDesc": "Explore the excellent accommodation offer in Kukljica.",
     "ctaEvents": "Events",
-    "ctaEventsDesc": "See events in Kukljica."
+    "ctaEventsDesc": "See events in Kukljica.",
+    "featuredLabel": "Featured",
+    "featuredTitle": "What is happening in Kukljica",
+    "typeEvent": "Event",
+    "typeBlog": "Post",
+    "heroBadge": "Welcome to Kukljica",
+    "readMore": "Read more",
+    "heroHeading": "Discover the beauty of Kukljica"
   },
   "about": {
     "title": "About us",
@@ -250,12 +257,37 @@
     "noContent": "No information currently available."
   },
   "footer": {
-    "address": "Address",
-    "phone": "Phone",
-    "email": "Email",
-    "touristRegulations": "TOURIST REGULATIONS",
-    "usefulLinks": "USEFUL LINKS",
-    "officialDocs": "OFFICIAL DOCUMENTS"
+    "ctaBadge": "Visit us",
+    "ctaLine1": "Kukljica is waiting for you",
+    "ctaButton": "See events",
+    "newsletterLabel": "Subscribe to our newsletter",
+    "newsletterPlaceholder": "Your email address",
+    "newsletterDisclaimer": "Your information will never be shared with third parties.",
+    "colPages": "Main pages",
+    "colActivities": "Activities",
+    "colInfo": "Info & Contact",
+    "home": "Homepage",
+    "about": "About us",
+    "events": "Events",
+    "accommodation": "Accommodation",
+    "beaches": "Beaches",
+    "landmarks": "Landmarks",
+    "howToGetHere": "Getting here",
+    "activeVacation": "Active holidays",
+    "nautical": "Nautical",
+    "cycling": "Cycling",
+    "hiking": "Hiking",
+    "excursions": "Excursions",
+    "zelenaPoint": "Zelena Punta",
+    "news": "News",
+    "renters": "Renters' corner",
+    "owners": "Owners' corner",
+    "timetable": "Timetable",
+    "usefulLinks": "Useful links",
+    "contact": "Contact",
+    "rights": "All rights reserved.",
+    "officialDocs": "Official documents",
+    "touristRegulations": "Tourist regulations"
   },
   "common": {
     "contactUs": "Contact Us",
@@ -263,5 +295,21 @@
     "backToTop": "Back to top",
     "loading": "Loading...",
     "error": "Error loading content."
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Get in touch with us",
+    "infoTitle": "Find us",
+    "nameLabel": "Full name",
+    "namePlaceholder": "Your full name",
+    "emailLabel": "Email address",
+    "phoneLabel": "Phone number (optional)",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Write your message...",
+    "submit": "Send message",
+    "sending": "Sending...",
+    "successTitle": "Message sent!",
+    "successText": "Thank you! We will get back to you as soon as possible.",
+    "errorText": "An error occurred. Please try again or contact us directly at info@kukljica.hr"
   }
 }

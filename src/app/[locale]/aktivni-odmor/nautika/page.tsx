@@ -1,5 +1,5 @@
-import { useTranslations, useLocale } from 'next-intl'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import Image from 'next/image'
 import PageHero from '@/components/sections/PageHero'
 import FadeIn from '@/components/sections/FadeIn'
@@ -12,12 +12,11 @@ const HERO_IMAGES = [
 
 export default function NautikaPage() {
   const t = useTranslations('nautika')
-  const locale = useLocale()
-  const prefix = locale === 'en' ? '/en' : ''
   return (
     <>
-      <PageHero title={t('title')} subtitle={t('heroSubtitle')} images={HERO_IMAGES} />
-      <section className="py-20 bg-white">
+      <PageHero title={t('title')} subtitle={t('heroSubtitle')} images={HERO_IMAGES}
+        label="Nautika" />
+      <section className="py-20" style={{backgroundColor: "var(--light)"}}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-20 mb-20">
             <FadeIn>
@@ -49,7 +48,7 @@ export default function NautikaPage() {
               <h2 className="font-display text-3xl text-forest-800 font-light mb-4">{t('harbourTitle')}</h2>
               <p className="text-forest-700 mb-2">{t('harbourFeatures')}</p>
               <p className="text-forest-600/80 text-sm whitespace-pre-line mb-6">{t('harbourContact')}</p>
-              <Link href={`${prefix}/o-nama`} className="inline-flex items-center gap-2 bg-forest-800 hover:bg-forest-700 text-white text-sm font-medium px-6 py-3 transition-colors">
+              <Link href={`/o-nama`} className="inline-flex items-center gap-2 bg-forest-800 hover:bg-forest-700 text-white text-sm font-medium px-6 py-3 transition-colors">
                 {t('contactUs')} →
               </Link>
             </div>

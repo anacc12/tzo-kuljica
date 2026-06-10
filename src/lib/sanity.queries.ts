@@ -1,72 +1,85 @@
 import { sanityClient } from './sanity'
 
-// ─── Types ──────────────────────────────────────────────────────────────────
+// ─── Types ───────────────────────────────────────────────────────────────────
 
-export type SanityPost = {
+export type SanityArticle = {
   _id: string
+  type: 'blog' | 'event'
   title: string
   slug: { current: string }
-  publishedAt: string
-  excerpt: string
-  category: 'novost' | 'iznajmljivaci' | 'vlasnici' | 'dodatno'
-  language: 'hr' | 'en'
-  mainImage?: { asset: { url: string }; alt?: string }
-  body?: unknown[]
+  featured: boolean
+  thumbnail?: { asset: { url: string }; alt?: string }
+  shortDescription?: string
+  longDescription?: unknown[]
+  gallery?: { asset: { url: string }; alt?: string }[]
+  // blog only
+  pages?: string[]
+  publishedAt?: string
+  // event only
+  location?: string
+  startDate?: string
+  startTime?: string
+  endDate?: string
+  endTime?: string
 }
 
-export type SanityEvent = {
-  _id: string
-  title: string
-  slug: { current: string }
-  dateFrom: string
-  dateTo: string
-  description: string
-  language: 'hr' | 'en'
-  image?: { asset: { url: string }; alt?: string }
-  body?: unknown[]
-}
+// GROQ projekcija — title i shortDescription se čitaju per-locale
+const articleFields = (locale: string) => `
+  _id, type, slug, featured,
+  "title": title.${locale},
+  "shortDescription": shortDescription.${locale},
+  thumbnail { asset->{ url }, alt }
+`
 
-// ─── Posts ───────────────────────────────────────────────────────────────────
-
-export async function getAllPosts(locale: string, category?: string): Promise<SanityPost[]> {
-  const categoryFilter = category ? `&& category == "${category}"` : ''
-  return sanityClient.fetch(
-    `*[_type == "post" && language == $locale ${categoryFilter}] | order(publishedAt desc) {
-      _id, title, slug, publishedAt, excerpt, category, language,
-      mainImage { asset->{ url }, alt }
-    }`,
-    { locale }
-  )
-}
-
-export async function getPostBySlug(slug: string, locale: string): Promise<SanityPost | null> {
-  return sanityClient.fetch(
-    `*[_type == "post" && slug.current == $slug && language == $locale][0] {
-      _id, title, slug, publishedAt, excerpt, category, language, body,
-      mainImage { asset->{ url }, alt }
-    }`,
-    { slug, locale }
-  )
-}
+const articleFieldsFull = (locale: string) => `
+  ${articleFields(locale)},
+  "longDescription": longDescription.${locale}[] {
+    ...,
+    _type == "image" => { "asset": asset->{ url }, alt }
+  },
+  gallery[] { asset->{ url }, alt },
+  pages, publishedAt,
+  location, startDate, startTime, endDate, endTime
+`
 
 // ─── Events ──────────────────────────────────────────────────────────────────
 
-export async function getAllEvents(locale: string): Promise<SanityEvent[]> {
+export async function getAllEvents(locale: string): Promise<SanityArticle[]> {
   return sanityClient.fetch(
-    `*[_type == "event" && language == $locale] | order(dateFrom asc) {
-      _id, title, slug, dateFrom, dateTo, description, language,
-      image { asset->{ url }, alt }
-    }`,
-    { locale }
+    `*[_type == "article" && type == "event"] | order(startDate asc) { ${articleFields(locale)} }`,
+    {}
   )
 }
 
-export async function getEventBySlug(slug: string, locale: string): Promise<SanityEvent | null> {
+export async function getEventBySlug(slug: string, locale: string): Promise<SanityArticle | null> {
   return sanityClient.fetch(
-    `*[_type == "event" && slug.current == $slug && language == $locale][0] {
-      _id, title, slug, dateFrom, dateTo, description, language, body,
-      image { asset->{ url }, alt }
-    }`,
-    { slug, locale }
+    `*[_type == "article" && type == "event" && slug.current == $slug][0] { ${articleFieldsFull(locale)} }`,
+    { slug }
+  )
+}
+
+// ─── Blog posts ───────────────────────────────────────────────────────────────
+
+export async function getAllPosts(locale: string, page?: string): Promise<SanityArticle[]> {
+  const pageFilter = page ? `&& $page in pages` : ''
+  return sanityClient.fetch(
+    `*[_type == "article" && type == "blog" ${pageFilter}] | order(publishedAt desc) { ${articleFields(locale)}, publishedAt, pages }`,
+    { page: page ?? null }
+  )
+}
+
+export async function getPostBySlug(slug: string, locale: string): Promise<SanityArticle | null> {
+  return sanityClient.fetch(
+    `*[_type == "article" && type == "blog" && slug.current == $slug][0] { ${articleFieldsFull(locale)} }`,
+    { slug }
+  )
+}
+
+// ─── Featured (homepage) ──────────────────────────────────────────────────────
+
+export async function getFeaturedArticles(locale: string): Promise<SanityArticle[]> {
+  return sanityClient.fetch(
+    `*[_type == "article" && featured == true] | order(_createdAt desc) { ${articleFields(locale)}, publishedAt, startDate }`,
+    {}
   )
 }

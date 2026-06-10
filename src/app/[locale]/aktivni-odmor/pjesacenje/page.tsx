@@ -13,8 +13,9 @@ export default function HikingPage() {
   const t = useTranslations('hiking')
   return (
     <>
-      <PageHero title={t('title')} subtitle={t('heroSubtitle')} images={HERO_IMAGES} />
-      <section className="py-20 bg-white">
+      <PageHero title={t('title')} subtitle={t('heroSubtitle')} images={HERO_IMAGES}
+        label="Pješačenje" />
+      <section className="py-20" style={{backgroundColor: "var(--light)"}}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-20 mb-20">
             <FadeIn>

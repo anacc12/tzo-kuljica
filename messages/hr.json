@@ -55,7 +55,14 @@
     "ctaAccommodation": "Smještaj",
     "ctaAccommodationDesc": "Upoznajte se sa vrhunskom ponudom smještaja u Kukljici.",
     "ctaEvents": "Događanja",
-    "ctaEventsDesc": "Pogledajte događanja u Kukljici."
+    "ctaEventsDesc": "Pogledajte događanja u Kukljici.",
+    "featuredLabel": "Istaknuto",
+    "featuredTitle": "Aktualno na Kukljici",
+    "typeEvent": "Događanje",
+    "typeBlog": "Objava",
+    "heroBadge": "Dobrodošli na Kukljicu",
+    "readMore": "Pročitaj više",
+    "heroHeading": "Otkrijte ljepotu Kukljice"
   },
   "about": {
     "title": "O nama",
@@ -250,12 +257,37 @@
     "noContent": "Trenutno nema dostupnih informacija."
   },
   "footer": {
-    "address": "Adresa",
-    "phone": "Telefon",
-    "email": "Elektronička pošta",
-    "touristRegulations": "PROPISI U TURIZMU",
-    "usefulLinks": "KORISNI LINKOVI",
-    "officialDocs": "SLUŽBENI DOKUMENTI"
+    "ctaBadge": "Posjetite nas",
+    "ctaLine1": "Kukljica vas čeka",
+    "ctaButton": "Pogledajte događanja",
+    "newsletterLabel": "Pretplatite se na novosti",
+    "newsletterPlaceholder": "Vaša e-mail adresa",
+    "newsletterDisclaimer": "Vaši podaci neće biti dijeljeni s trećim stranama.",
+    "colPages": "Glavne stranice",
+    "colActivities": "Aktivnosti",
+    "colInfo": "Info & Kontakt",
+    "home": "Naslovnica",
+    "about": "O nama",
+    "events": "Događanja",
+    "accommodation": "Smještaj",
+    "beaches": "Plaže",
+    "landmarks": "Znamenitosti",
+    "howToGetHere": "Kako do nas",
+    "activeVacation": "Aktivni odmor",
+    "nautical": "Nautika",
+    "cycling": "Biciklizam",
+    "hiking": "Pješačenje",
+    "excursions": "Izleti",
+    "zelenaPoint": "Zelena Punta",
+    "news": "Novosti",
+    "renters": "Kutak za iznajmljivače",
+    "owners": "Kutak za vlasnike",
+    "timetable": "Vozni red",
+    "usefulLinks": "Korisni linkovi",
+    "contact": "Kontakt",
+    "rights": "Sva prava pridržana.",
+    "officialDocs": "Službeni dokumenti",
+    "touristRegulations": "Turistički propisi"
   },
   "common": {
     "contactUs": "Kontaktirajte Nas",
@@ -263,5 +295,21 @@
     "backToTop": "Na vrh",
     "loading": "Učitavanje...",
     "error": "Greška pri učitavanju."
+  },
+  "contact": {
+    "title": "Kontakt",
+    "subtitle": "Javite nam se s vašim pitanjima i prijedlozima",
+    "infoTitle": "Pronađite nas",
+    "nameLabel": "Ime i prezime",
+    "namePlaceholder": "Vaše ime i prezime",
+    "emailLabel": "E-mail adresa",
+    "phoneLabel": "Broj telefona (nije obavezno)",
+    "messageLabel": "Poruka",
+    "messagePlaceholder": "Napišite vašu poruku...",
+    "submit": "Pošalji poruku",
+    "sending": "Slanje...",
+    "successTitle": "Poruka je poslana!",
+    "successText": "Hvala vam! Javit ćemo vam se u najkraćem mogućem roku.",
+    "errorText": "Došlo je do greške. Molimo pokušajte ponovno ili nas kontaktirajte direktno na info@kukljica.hr"
   }
 }

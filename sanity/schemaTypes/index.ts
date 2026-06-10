@@ -1,4 +1,3 @@
-import { postType } from './post'
-import { eventType } from './event'
+import { articleType } from './article'
 
-export const schemaTypes = [postType, eventType]
+export const schemaTypes = [articleType]

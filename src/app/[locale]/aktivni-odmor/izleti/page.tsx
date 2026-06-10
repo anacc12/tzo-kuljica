@@ -1,5 +1,5 @@
-import { useTranslations, useLocale } from 'next-intl'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import Image from 'next/image'
 import PageHero from '@/components/sections/PageHero'
 import FadeIn from '@/components/sections/FadeIn'
@@ -12,12 +12,11 @@ const HERO_IMAGES = [
 
 export default function TripsPage() {
   const t = useTranslations('trips')
-  const locale = useLocale()
-  const prefix = locale === 'en' ? '/en' : ''
   return (
     <>
-      <PageHero title={t('title')} subtitle={t('heroSubtitle')} images={HERO_IMAGES} />
-      <section className="py-20 bg-white">
+      <PageHero title={t('title')} subtitle={t('heroSubtitle')} images={HERO_IMAGES}
+        label="Izleti" />
+      <section className="py-20" style={{backgroundColor: "var(--light)"}}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-20 mb-20">
             <FadeIn>
@@ -47,7 +46,7 @@ export default function TripsPage() {
             <div className="bg-sand-100 rounded-sm p-8">
               <h2 className="font-display text-3xl text-forest-800 font-light mb-3">{t('infoTitle')}</h2>
               <p className="text-forest-600/80 mb-6">{t('infoText')}</p>
-              <Link href={`${prefix}/o-nama`} className="inline-flex items-center gap-2 bg-forest-800 hover:bg-forest-700 text-white text-sm font-medium px-6 py-3 transition-colors">
+              <Link href={`/o-nama`} className="inline-flex items-center gap-2 bg-forest-800 hover:bg-forest-700 text-white text-sm font-medium px-6 py-3 transition-colors">
                 {t('contactUs')} →
               </Link>
             </div>

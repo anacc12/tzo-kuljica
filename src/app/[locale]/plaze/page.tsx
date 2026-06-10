@@ -21,8 +21,9 @@ export default function BeachesPage() {
   const t = useTranslations('beaches')
   return (
     <>
-      <PageHero title={t('title')} subtitle={t('heroSubtitle')} images={HERO_IMAGES} />
-      <section className="py-20 bg-white">
+      <PageHero title={t('title')} subtitle={t('heroSubtitle')} images={HERO_IMAGES}
+        label="Plaže" />
+      <section className="py-20" style={{backgroundColor: "var(--light)"}}>
         <div className="max-w-7xl mx-auto px-6 space-y-20">
           {BEACHES.map(({ key, img, map }, i) => (
             <FadeIn key={key}>

@@ -20,8 +20,9 @@ export default function LandmarksPage() {
   const t = useTranslations('landmarks')
   return (
     <>
-      <PageHero title={t('title')} subtitle={t('heroSubtitle')} images={HERO_IMAGES} />
-      <section className="py-20 bg-white">
+      <PageHero title={t('title')} subtitle={t('heroSubtitle')} images={HERO_IMAGES}
+        label="Znamenitosti" />
+      <section className="py-20" style={{backgroundColor: "var(--light)"}}>
         <div className="max-w-7xl mx-auto px-6 space-y-24">
           {LANDMARKS.map(({ key, img }, i) => (
             <FadeIn key={key} delay={0.05}>

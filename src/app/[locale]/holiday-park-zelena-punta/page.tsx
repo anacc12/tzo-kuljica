@@ -1,5 +1,5 @@
-import { useTranslations, useLocale } from 'next-intl'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import Image from 'next/image'
 import FadeIn from '@/components/sections/FadeIn'
 
@@ -7,8 +7,6 @@ const SERVICES = ['parking','pedaloes','sports','restaurant','pizzeria','tours']
 
 export default function ZelenaPuntaPage() {
   const t = useTranslations('zelenaPunta')
-  const locale = useLocale()
-  const prefix = locale === 'en' ? '/en' : ''
   return (
     <>
       {/* Video hero */}
@@ -28,7 +26,7 @@ export default function ZelenaPuntaPage() {
       </section>
 
       {/* Content */}
-      <section className="py-20 bg-white">
+      <section className="py-20" style={{backgroundColor: "var(--light)"}}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-20 mb-20">
             <FadeIn>

@@ -1,5 +1,5 @@
-import { useTranslations, useLocale } from 'next-intl'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import Image from 'next/image'
 import PageHero from '@/components/sections/PageHero'
 import FadeIn from '@/components/sections/FadeIn'
@@ -19,12 +19,11 @@ const ACTIVITIES = [
 
 export default function ActiveVacationPage() {
   const t = useTranslations('activeVacation')
-  const locale = useLocale()
-  const prefix = locale === 'en' ? '/en' : ''
   return (
     <>
-      <PageHero title={t('title')} subtitle={t('heroSubtitle')} images={HERO_IMAGES} />
-      <section className="py-20 bg-white">
+      <PageHero title={t('title')} subtitle={t('heroSubtitle')} images={HERO_IMAGES}
+        label="Aktivni odmor" />
+      <section className="py-20" style={{backgroundColor: "var(--light)"}}>
         <div className="max-w-7xl mx-auto px-6 space-y-20">
           {ACTIVITIES.map(({ key, href, img }, i) => (
             <FadeIn key={key}>
@@ -33,7 +32,7 @@ export default function ActiveVacationPage() {
                   <p className="text-xs font-semibold tracking-[0.3em] uppercase text-olive-600 mb-3">Aktivni odmor</p>
                   <h2 className="font-display text-4xl text-forest-800 font-light mb-4">{t(key)}</h2>
                   <p className="text-forest-600/80 leading-relaxed mb-6">{t(`${key}Text` as Parameters<typeof t>[0])}</p>
-                  <Link href={`${prefix}${href}`} className="inline-flex items-center gap-2 bg-forest-800 hover:bg-forest-700 text-white text-sm font-medium px-6 py-3 transition-colors">
+                  <Link href={href} className="inline-flex items-center gap-2 bg-forest-800 hover:bg-forest-700 text-white text-sm font-medium px-6 py-3 transition-colors">
                     {t('findOutMore')} →
                   </Link>
                 </div>
