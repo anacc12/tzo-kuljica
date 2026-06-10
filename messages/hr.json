@@ -62,7 +62,14 @@
     "typeBlog": "Objava",
     "heroBadge": "Dobrodošli na Kukljicu",
     "readMore": "Pročitaj više",
-    "heroHeading": "Otkrijte ljepotu Kukljice"
+    "heroHeading": "Otkrijte ljepotu Kukljice",
+    "aboutSection1Label": "Otok",
+    "aboutSection1Text": "Kukljica je slikovito turističko i ribarsko mjesto, smješteno na krajnjem jugoistoku otoka Ugljana na kojeg se nadovezuje susjedni otok Pašman.",
+    "aboutSection2Label": "Priroda",
+    "aboutSection2Text": "Raznolikost turističke ponude, ljepote krajolika koje odlikuju guste borove šume, pješčane i stjenovite plaže na obalama kristalno bistrog mora, te opremljena luka u zaštićenoj prirodnoj uvali.",
+    "aboutSection3Label": "Smještaj",
+    "aboutSection3Text": "Veliki izbor smještaja u privatnim apartmanima i sobama, i Holiday Park Zelena Punta, pružaju mogućnosti za idealan odmor.",
+    "viewDetails": "Pogledaj detalje"
   },
   "about": {
     "title": "O nama",

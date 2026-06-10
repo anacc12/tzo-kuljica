@@ -50,11 +50,13 @@ export default async function HomePage({ params: { locale } }: { params: { local
         locale={locale}
       />
 
-      {/* 5. About — halves: text + 4 static images */}
+      {/* 5. About — scroll sections: sticky image right, text left */}
       <HomeAbout
-        label={t('aboutLabel')}
-        title={t('aboutTitle')}
-        body={t('aboutText')}
+        sections={[
+          { label: t('aboutSection1Label'), text: t('aboutSection1Text') },
+          { label: t('aboutSection2Label'), text: t('aboutSection2Text') },
+          { label: t('aboutSection3Label'), text: t('aboutSection3Text') },
+        ]}
         cta={t('showMore')}
       />
 
@@ -63,6 +65,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
         label={t('accommodationLabel')}
         title={t('accommodationTitle')}
         cta={t('browseAccommodation')}
+        detailsLabel={t('viewDetails')}
       />
 
       {/* 7. News — dark section, 3-col article cards */}

@@ -62,7 +62,14 @@
     "typeBlog": "Post",
     "heroBadge": "Welcome to Kukljica",
     "readMore": "Read more",
-    "heroHeading": "Discover the beauty of Kukljica"
+    "heroHeading": "Discover the beauty of Kukljica",
+    "aboutSection1Label": "Island",
+    "aboutSection1Text": "Kukljica is a picturesque tourist and fishing village, located at the southernmost tip of the island of Ugljan, which borders the neighbouring island of Pašman.",
+    "aboutSection2Label": "Nature",
+    "aboutSection2Text": "The diversity of tourist offerings, the beauty of the landscape characterised by dense pine forests, sandy and rocky beaches along the crystal-clear sea, and a well-equipped marina in a sheltered natural bay.",
+    "aboutSection3Label": "Accommodation",
+    "aboutSection3Text": "A wide range of accommodation in private apartments and rooms, and the Holiday Park Zelena Punta, offer the perfect setting for an ideal holiday.",
+    "viewDetails": "View details"
   },
   "about": {
     "title": "About us",
