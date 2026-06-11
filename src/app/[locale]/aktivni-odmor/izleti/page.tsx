@@ -47,7 +47,7 @@ export default function TripsPage() {
               <h2 className="font-display text-3xl text-forest-800 font-light mb-3">{t('infoTitle')}</h2>
               <p className="text-forest-600/80 mb-6">{t('infoText')}</p>
               <Link href={`/o-nama`} className="inline-flex items-center gap-2 bg-forest-800 hover:bg-forest-700 text-white text-sm font-medium px-6 py-3 transition-colors">
-                {t('contactUs')} →
+                {t('contactUs')}
               </Link>
             </div>
           </FadeIn>

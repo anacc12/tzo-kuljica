@@ -22,20 +22,22 @@ export default function HomeNews({ articles, label, title, locale }: Props) {
   if (articles.length === 0) return null
 
   return (
-    <section style={{ backgroundColor: 'var(--dark)', color: 'var(--light)', paddingTop: 120, paddingBottom: 120 }}>
+    <section style={{ backgroundColor: 'var(--light)', color: 'var(--dark)', paddingTop: 140, paddingBottom: 140 }}>
       <div className="tz-container">
-        <div className="divider-light mb-16" />
+        {/* <div className="divider mb-16" /> */}
 
         {/* Header */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 64, flexWrap: 'wrap', gap: 16 }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: "center", marginBottom: 64, flexWrap: 'wrap', gap: 16 }}>
           <motion.div
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.85, ease: EASE }}
-            style={{ display: 'flex', flexDirection: 'column', gap: 12 }}
+            style={{ display: 'flex', alignItems: "center", flexDirection: 'column', gap: 12 }}
           >
-            <span className="label-badge light">{label}</span>
+            <div style={{ display: 'flex' }}>
+              <span className="label-badge">{label}</span>
+            </div>
             <h2
               style={{
                 fontFamily: 'Instrument Serif, Georgia, serif',
@@ -43,15 +45,15 @@ export default function HomeNews({ articles, label, title, locale }: Props) {
                 fontWeight: 400,
                 lineHeight: 1.05,
                 letterSpacing: '-0.025em',
-                color: 'var(--light)',
+                color: 'var(--dark)',
               }}
             >
               {title}
             </h2>
           </motion.div>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 3 }}>
-          {articles.slice(0, 3).map((article, i) => {
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 3 }}>
+          {articles.slice(0, 4).map((article, i) => {
             const href = article.type === 'event'
               ? { pathname: '/dogadanja/[slug]' as const, params: { slug: article.slug.current } }
               : { pathname: '/blog/[slug]' as const, params: { slug: article.slug.current } }
@@ -72,7 +74,7 @@ export default function HomeNews({ articles, label, title, locale }: Props) {
               >
                 <Link href={href} style={{ display: 'block', textDecoration: 'none' }}>
                   {/* Image */}
-                  <div style={{ position: 'relative', aspectRatio: '4/3', overflow: 'hidden', borderRadius: 4, marginBottom: 20 }}>
+                  <div style={{ position: 'relative', aspectRatio: '16/9', overflow: 'hidden', borderRadius: 4, marginBottom: 20 }}>
                     {article.thumbnail ? (
                       <Image
                         src={article.thumbnail.asset.url}
@@ -83,43 +85,46 @@ export default function HomeNews({ articles, label, title, locale }: Props) {
                         sizes="33vw"
                       />
                     ) : (
-                      <div style={{ width: '100%', height: '100%', background: 'rgba(249,245,235,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <div style={{ width: '100%', height: '100%', background: 'rgba(22,35,27,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <span style={{ fontSize: 40, opacity: 0.3 }}>{article.type === 'event' ? '🎭' : '📄'}</span>
                       </div>
                     )}
+                    {/* Type tag — top-left corner of image */}
+                    <span style={{
+                      position: 'absolute',
+                      top: 6,
+                      left: 6,
+                      fontFamily: 'Manrope, sans-serif',
+                      fontSize: 11,
+                      letterSpacing: '0.12em',
+                      textTransform: 'uppercase',
+                      fontWeight: 500,
+                      color: 'var(--dark)',
+                      backgroundColor: 'var(--bg)',
+                      borderRadius: 4,
+                      padding: '3px 8px',
+                    }}>
+                      {article.type === 'event' ? 'Događanje' : 'Objava'}
+                    </span>
                   </div>
 
                   {/* Content */}
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                     <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
                       {dateLabel && (
-                        <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, color: 'rgba(249,245,235,0.45)' }}>
+                        <span style={{ fontFamily: 'Manrope, sans-serif', fontSize: 13, color: 'rgba(22,35,27,0.5)' }}>
                           {dateLabel}
                         </span>
                       )}
-                      <span
-                        style={{
-                          fontFamily: 'Inter, sans-serif',
-                          fontSize: 11,
-                          letterSpacing: '0.15em',
-                          textTransform: 'uppercase',
-                          color: 'rgba(249,245,235,0.4)',
-                          border: '1px solid rgba(249,245,235,0.2)',
-                          borderRadius: 999,
-                          padding: '2px 10px',
-                        }}
-                      >
-                        {article.type === 'event' ? 'Događanje' : 'Objava'}
-                      </span>
                     </div>
                     <h3
                       style={{
                         fontFamily: 'Instrument Serif, Georgia, serif',
-                        fontSize: 22,
+                        fontSize: 30,
                         fontWeight: 400,
                         lineHeight: 1.25,
                         letterSpacing: '-0.01em',
-                        color: 'var(--light)',
+                        color: 'var(--dark)',
                         transition: 'opacity 0.3s',
                         opacity: hovered === i ? 0.75 : 1,
                       }}
@@ -127,7 +132,7 @@ export default function HomeNews({ articles, label, title, locale }: Props) {
                       {article.title}
                     </h3>
                     {article.shortDescription && (
-                      <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, color: 'rgba(249,245,235,0.45)', lineHeight: 1.6, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                      <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 14, color: 'rgba(22,35,27,0.5)', lineHeight: 1.6, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
                         {article.shortDescription}
                       </p>
                     )}

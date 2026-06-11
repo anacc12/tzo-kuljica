@@ -95,7 +95,7 @@ Otvori `tailwind.config.ts`:
 
 ```ts
 colors: {
-  forest: { 800: '#1A2F0E', ... },  // Boja navbara/headera
+  forest: { 800: '#11183E', ... },  // Boja navbara/headera
   olive: { 600: '#8B7427', ... },   // Zlatni accent
 }
 ```

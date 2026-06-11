@@ -40,12 +40,12 @@ export default function HomeAccommodation({ label, title, cta, detailsLabel = 'P
   const doubled = [...APTS, ...APTS]
 
   return (
-    <section style={{ backgroundColor: 'var(--light)', paddingTop: 80, paddingBottom: 80, overflow: 'hidden' }}>
+    <section style={{ backgroundColor: 'var(--bg)', paddingTop: 140, paddingBottom: 140, overflow: 'hidden' }}>
       <div className="tz-container">
-        <div className="divider mb-12" />
+        {/* <div className="divider mb-12" /> */}
 
         {/* Header */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 48, flexWrap: 'wrap', gap: 16 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 60, flexWrap: 'wrap' }}>
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -53,7 +53,7 @@ export default function HomeAccommodation({ label, title, cta, detailsLabel = 'P
             transition={{ duration: 0.8, ease: EASE }}
             style={{ display: 'flex', flexDirection: 'column', gap: 10 }}
           >
-            <span className="label-badge">{label}</span>
+            {/* <span className="label-badge">{label}</span> */}
             <h2 style={{
               fontFamily: 'Instrument Serif, Georgia, serif',
               fontSize: 'clamp(2rem, 4vw, 3.5rem)',
@@ -74,7 +74,7 @@ export default function HomeAccommodation({ label, title, cta, detailsLabel = 'P
             <Link
               href="/privatni-smjestaj"
               style={{
-                fontFamily: 'Inter, sans-serif',
+                fontFamily: 'Manrope, sans-serif',
                 fontSize: 14,
                 fontWeight: 500,
                 color: 'var(--dark)',
@@ -83,7 +83,7 @@ export default function HomeAccommodation({ label, title, cta, detailsLabel = 'P
                 paddingBottom: 2,
               }}
             >
-              {cta} →
+              {cta}
             </Link>
           </motion.div>
         </div>
@@ -131,7 +131,7 @@ export default function HomeAccommodation({ label, title, cta, detailsLabel = 'P
               <div style={{
                 position: 'absolute',
                 inset: 0,
-                background: 'linear-gradient(to top, rgba(22,35,27,0.85) 0%, rgba(22,35,27,0) 55%)',
+                background: 'linear-gradient(to top, rgba(17,21,46,0.85) 0%, rgba(17,21,46,0) 55%)',
               }} />
 
               {/* Content */}
@@ -157,7 +157,7 @@ export default function HomeAccommodation({ label, title, cta, detailsLabel = 'P
                 <span style={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  fontFamily: 'Inter, sans-serif',
+                  fontFamily: 'Manrope, sans-serif',
                   fontSize: 12,
                   fontWeight: 500,
                   color: 'rgba(249,245,235,0.75)',
@@ -167,7 +167,7 @@ export default function HomeAccommodation({ label, title, cta, detailsLabel = 'P
                   width: 'fit-content',
                   letterSpacing: '0.02em',
                 }}>
-                  {detailsLabel} →
+                  {detailsLabel}
                 </span>
               </div>
             </Link>

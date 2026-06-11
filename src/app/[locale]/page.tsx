@@ -16,7 +16,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
     getAllEvents(locale).catch(() => []),
   ])
 
-  const newsItems = [...featured, ...events].slice(0, 3)
+  const newsItems = [...featured, ...events].slice(0, 4)
 
   return (
     <>

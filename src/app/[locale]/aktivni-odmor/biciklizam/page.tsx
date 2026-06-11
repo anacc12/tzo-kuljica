@@ -48,11 +48,11 @@ export default function CyclingPage() {
               <p className="text-forest-600/80 mb-6">{t('rentText')}</p>
               <div className="flex flex-wrap gap-4">
                 <Link href={`/o-nama`} className="inline-flex items-center gap-2 bg-forest-800 hover:bg-forest-700 text-white text-sm font-medium px-6 py-3 transition-colors">
-                  {t('contactUs')} →
+                  {t('contactUs')}
                 </Link>
                 <a href="https://cdn.prod.website-files.com/67e320f1dcdaf05e33698750/683f3c5c6a3b2660ca1d2dbe_Bike%20map%20Ugljan-Pasman%202025_web.pdf" target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 border border-forest-800 text-forest-800 hover:bg-forest-800 hover:text-white text-sm font-medium px-6 py-3 transition-colors">
-                  {t('viewRoute')} →
+                  {t('viewRoute')}
                 </a>
               </div>
             </div>

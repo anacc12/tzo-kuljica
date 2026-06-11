@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 
@@ -22,17 +22,25 @@ type Props = {
 }
 
 export default function HomeWelcome({ label, title, body, cta }: Props) {
-  const [active, setActive] = useState(0)
+  const [current, setCurrent] = useState(0)   // statična slika u pozadini
+  const [next, setNext] = useState<number | null>(null) // slika koja klizi s desna
+  const [slideKey, setSlideKey] = useState(0) // forciraj re-mount animacije
 
   useEffect(() => {
-    const t = setInterval(() => setActive(p => (p + 1) % IMAGES.length), 3500)
+    const t = setInterval(() => {
+      setNext(prev => {
+        const n = ((prev ?? current) + 1) % IMAGES.length
+        setSlideKey(k => k + 1)
+        return n
+      })
+    }, 3500)
     return () => clearInterval(t)
-  }, [])
+  }, [current])
 
   return (
-    <section style={{ backgroundColor: 'var(--light)', paddingTop: 120, paddingBottom: 120 }}>
+    <section style={{ backgroundColor: 'var(--light)', paddingTop: 100, paddingBottom: 120 }}>
       <div className="tz-container">
-        <div className="divider mb-16" />
+        {/* <div className="divider mb-16" /> */}
         <div
           style={{
             display: 'grid',
@@ -48,9 +56,9 @@ export default function HomeWelcome({ label, title, body, cta }: Props) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.85, ease: EASE }}
-            style={{ display: 'flex', flexDirection: 'column', gap: 24 }}
+            style={{ display: 'flex', flexDirection: 'column', gap: 24, maxWidth: 600 }}
           >
-            <span className="label-badge">{label}</span>
+            {/* <span className="label-badge">{label}</span> */}
             <h2
               style={{
                 fontFamily: 'Instrument Serif, Georgia, serif',
@@ -65,10 +73,10 @@ export default function HomeWelcome({ label, title, body, cta }: Props) {
             </h2>
             <p
               style={{
-                fontFamily: 'Inter, sans-serif',
-                fontSize: 17,
-                lineHeight: 1.65,
-                color: 'rgba(22,35,27,0.7)',
+                fontFamily: 'Manrope, sans-serif',
+                fontSize: 16,
+                lineHeight: 1.4,
+                color: 'rgba(22,35,27,0.8)',
                 maxWidth: 480,
               }}
             >
@@ -80,7 +88,7 @@ export default function HomeWelcome({ label, title, body, cta }: Props) {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 8,
-                fontFamily: 'Inter, sans-serif',
+                fontFamily: 'Manrope, sans-serif',
                 fontSize: 14,
                 fontWeight: 500,
                 color: 'var(--dark)',
@@ -90,11 +98,11 @@ export default function HomeWelcome({ label, title, body, cta }: Props) {
                 textDecoration: 'none',
               }}
             >
-              {cta} →
+              {cta}
             </Link>
 
             {/* Dot indicators */}
-            <div style={{ display: 'flex', gap: 8, marginTop: 8 }}>
+            {/* <div style={{ display: 'flex', gap: 8, marginTop: 8 }}>
               {IMAGES.map((_, i) => (
                 <button
                   key={i}
@@ -111,36 +119,38 @@ export default function HomeWelcome({ label, title, body, cta }: Props) {
                   }}
                 />
               ))}
-            </div>
+            </div> */}
           </motion.div>
 
-          {/* Right — auto-rotating image */}
+          {/* Right — slide-over image */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.9, delay: 0.1, ease: EASE }}
-            style={{ position: 'relative', aspectRatio: '4/5', borderRadius: 4, overflow: 'hidden' }}
+            style={{ position: 'relative', aspectRatio: '4/3', borderRadius: 12, overflow: 'hidden' }}
           >
-            <AnimatePresence mode="wait">
+            {/* Pozadinska (statična) slika */}
+            <div style={{ position: 'absolute', inset: 0, zIndex: 1 }}>
+              <Image src={IMAGES[current]} alt="" fill className="object-cover" sizes="50vw" priority />
+            </div>
+
+            {/* Nova slika — klizi s desna, kad završi postaje pozadinska */}
+            {next !== null && (
               <motion.div
-                key={active}
-                initial={{ opacity: 0, scale: 1.04 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.7, ease: EASE }}
-                style={{ position: 'absolute', inset: 0 }}
+                key={slideKey}
+                initial={{ x: '100%' }}
+                animate={{ x: 0 }}
+                transition={{ duration: 0.85, ease: [0.77, 0, 0.18, 1] }}
+                onAnimationComplete={() => {
+                  setCurrent(next)
+                  setNext(null)
+                }}
+                style={{ position: 'absolute', inset: 0, zIndex: 2 }}
               >
-                <Image
-                  src={IMAGES[active]}
-                  alt=""
-                  fill
-                  className="object-cover"
-                  sizes="50vw"
-                  priority
-                />
+                <Image src={IMAGES[next]} alt="" fill className="object-cover" sizes="50vw" priority />
               </motion.div>
-            </AnimatePresence>
+            )}
           </motion.div>
         </div>
       </div>

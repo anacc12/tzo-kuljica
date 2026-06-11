@@ -35,7 +35,7 @@ export default function ZelenaPuntaPage() {
               <p className="text-forest-600/80 leading-relaxed whitespace-pre-line mb-6">{t('section1Text')}</p>
               <a href="https://www.zelenapunta.hr/" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-forest-800 hover:bg-forest-700 text-white text-sm font-medium px-6 py-3 transition-colors">
-                {t('book')} →
+                {t('book')}
               </a>
             </FadeIn>
             <FadeIn delay={0.1}>

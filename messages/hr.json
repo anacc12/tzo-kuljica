@@ -1,6 +1,6 @@
 {
   "nav": {
-    "aboutUs": "O nama",
+    "aboutUs": "O NAMA",
     "about": "Općenito",
     "howToGetHere": "Kako do nas?",
     "landmarks": "Znamenitosti",
@@ -31,7 +31,7 @@
     "welcomeTitle": "Posjetite nas i osjetite ljepotu Kukljice",
     "welcomeText": "Općina Kukljica je malo turističko i ribarsko mjesto na otoku Ugljanu čiji je prvi poznati zapis iz 1106. godine. Osim samog naselja pripadaju joj i četiri otočića: Bisage, Golac, Mišnjak i Karantunić.",
     "exploreTitle": "Istražite Kukljicu.",
-    "exploreLabel": "Upoznajte nas",
+    "exploreLabel": "Ponuda i aktivnosti",
     "beaches": "Plaže",
     "beachesDesc": "Naše prekrasne plaže su skriveni dragulji Jadrana.",
     "activeVacation": "Aktivni odmor",
@@ -60,7 +60,7 @@
     "featuredTitle": "Aktualno na Kukljici",
     "typeEvent": "Događanje",
     "typeBlog": "Objava",
-    "heroBadge": "Dobrodošli na Kukljicu",
+    "heroBadge": "Dobrodošli",
     "readMore": "Pročitaj više",
     "heroHeading": "Otkrijte ljepotu Kukljice",
     "aboutSection1Label": "Otok",

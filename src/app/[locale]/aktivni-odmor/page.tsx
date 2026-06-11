@@ -33,7 +33,7 @@ export default function ActiveVacationPage() {
                   <h2 className="font-display text-4xl text-forest-800 font-light mb-4">{t(key)}</h2>
                   <p className="text-forest-600/80 leading-relaxed mb-6">{t(`${key}Text` as Parameters<typeof t>[0])}</p>
                   <Link href={href} className="inline-flex items-center gap-2 bg-forest-800 hover:bg-forest-700 text-white text-sm font-medium px-6 py-3 transition-colors">
-                    {t('findOutMore')} →
+                    {t('findOutMore')}
                   </Link>
                 </div>
                 <div className={`relative aspect-[4/3] rounded-sm overflow-hidden ${i % 2 === 1 ? 'md:order-1' : ''}`}>

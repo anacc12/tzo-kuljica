@@ -102,7 +102,7 @@ export default function Footer() {
               border: '1px solid rgba(249,245,235,0.5)',
               borderRadius: 999,
               padding: '12px 28px',
-              fontFamily: 'Inter, sans-serif',
+              fontFamily: 'Manrope, sans-serif',
               fontSize: 14,
               fontWeight: 500,
               color: 'var(--light)',
@@ -133,32 +133,15 @@ export default function Footer() {
           >
             {/* Left: logo + newsletter */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: 40 }}>
-              {/* Logo */}
-              <Link href="/" style={{ textDecoration: 'none' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                  <div
-                    style={{
-                      width: 32,
-                      height: 32,
-                      backgroundColor: '#8B7427',
-                      borderRadius: 4,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexShrink: 0,
-                    }}
-                  >
-                    <span style={{ color: 'white', fontFamily: 'Instrument Serif', fontSize: 16, fontWeight: 400 }}>K</span>
-                  </div>
-                  <span style={{ fontFamily: 'Instrument Serif, serif', fontSize: 18, fontWeight: 400, color: 'var(--light)', letterSpacing: '-0.01em' }}>
-                    TZ Kukljica
-                  </span>
-                </div>
+              {/* Logo — dark bg, always light version */}
+              <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/logo-light.png" alt="TZ Kukljica" style={{ height: 36, width: 'auto', objectFit: 'contain' }} />
               </Link>
 
               {/* Newsletter */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-                <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(249,245,235,0.5)', fontWeight: 500 }}>
+                <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(249,245,235,0.5)', fontWeight: 500 }}>
                   {t('newsletterLabel')}
                 </p>
                 <div style={{ display: 'flex', alignItems: 'center', border: '1px solid rgba(249,245,235,0.2)', borderRadius: 4, overflow: 'hidden' }}>
@@ -172,7 +155,7 @@ export default function Footer() {
                       border: 'none',
                       outline: 'none',
                       padding: '12px 16px',
-                      fontFamily: 'Inter, sans-serif',
+                      fontFamily: 'Manrope, sans-serif',
                       fontSize: 14,
                       color: 'var(--light)',
                     }}
@@ -190,13 +173,13 @@ export default function Footer() {
                     <ArrowRight style={{ width: 16, height: 16 }} />
                   </button>
                 </div>
-                <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, color: 'rgba(249,245,235,0.35)', lineHeight: 1.5 }}>
+                <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 12, color: 'rgba(249,245,235,0.35)', lineHeight: 1.5 }}>
                   {t('newsletterDisclaimer')}
                 </p>
               </div>
 
               {/* Contact info */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontFamily: 'Inter, sans-serif', fontSize: 13, color: 'rgba(249,245,235,0.5)' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontFamily: 'Manrope, sans-serif', fontSize: 13, color: 'rgba(249,245,235,0.5)' }}>
                 <span>Ulica II br. 87, 23271 Kukljica</span>
                 <a href="tel:+38523373276" style={{ color: 'rgba(249,245,235,0.5)', textDecoration: 'none' }}>+385 (0) 23 373 276</a>
                 <a href="mailto:info@kukljica.hr" style={{ color: 'rgba(249,245,235,0.5)', textDecoration: 'none' }}>info@kukljica.hr</a>
@@ -207,7 +190,7 @@ export default function Footer() {
             <div style={{ display: 'flex', gap: 48, paddingRight: 48 }} className="footer-cols">
               {NAV_COLUMNS.map((col) => (
                 <div key={col.title} style={{ display: 'flex', flexDirection: 'column', gap: 24, flex: 1 }}>
-                  <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(249,245,235,0.4)', fontWeight: 500 }}>
+                  <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(249,245,235,0.4)', fontWeight: 500 }}>
                     {col.title}
                   </p>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -217,7 +200,7 @@ export default function Footer() {
                         // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         href={link.href as any}
                         style={{
-                          fontFamily: 'Inter, sans-serif',
+                          fontFamily: 'Manrope, sans-serif',
                           fontSize: 14,
                           fontWeight: 400,
                           color: 'rgba(249,245,235,0.65)',
@@ -268,18 +251,18 @@ export default function Footer() {
               </a>
             </div>
 
-            <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, color: 'rgba(249,245,235,0.35)' }}>
+            <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 12, color: 'rgba(249,245,235,0.35)' }}>
               © {new Date().getFullYear()} TZ Kukljica. {t('rights')}
             </p>
 
             <div style={{ display: 'flex', gap: 20 }}>
-              <Link href="/sluzbeni-dokumenti" style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, color: 'rgba(249,245,235,0.35)', textDecoration: 'none', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase' }}
+              <Link href="/sluzbeni-dokumenti" style={{ fontFamily: 'Manrope, sans-serif', fontSize: 12, color: 'rgba(249,245,235,0.35)', textDecoration: 'none', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase' }}
                 onMouseEnter={e => (e.currentTarget.style.color = 'rgba(249,245,235,0.7)')}
                 onMouseLeave={e => (e.currentTarget.style.color = 'rgba(249,245,235,0.35)')}
               >
                 {t('officialDocs')}
               </Link>
-              <Link href="/korisni-linkovi" style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, color: 'rgba(249,245,235,0.35)', textDecoration: 'none', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase' }}
+              <Link href="/korisni-linkovi" style={{ fontFamily: 'Manrope, sans-serif', fontSize: 12, color: 'rgba(249,245,235,0.35)', textDecoration: 'none', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase' }}
                 onMouseEnter={e => (e.currentTarget.style.color = 'rgba(249,245,235,0.7)')}
                 onMouseLeave={e => (e.currentTarget.style.color = 'rgba(249,245,235,0.35)')}
               >

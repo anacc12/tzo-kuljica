@@ -27,11 +27,11 @@ export default function HomeHero({ heading, ctaLabel, ctaSecondary, subtitle, ba
   }, [])
 
   return (
-    <section style={{ backgroundColor: 'var(--dark)', color: 'var(--light)', paddingTop: 128, paddingBottom: 0 }}>
+    <section style={{ backgroundColor: 'var(--dark)', color: 'var(--light)', paddingTop: 200, paddingBottom: 0 }}>
       <div className="tz-container">
 
         {/* Top tile: label + heading + subtitle + buttons */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 24, textAlign: 'center', paddingBottom: 56 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 24, textAlign: 'center', paddingBottom: 90 }}>
 
           {/* Badge — width: fit-content prevents full-width stretch */}
           <motion.div
@@ -44,11 +44,11 @@ export default function HomeHero({ heading, ctaLabel, ctaSecondary, subtitle, ba
           </motion.div>
 
           {/* Giant heading — word by word reveal */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0.25em' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0.25em', marginBottom: '20px' }}>
             {WORDS.map((word, i) => (
               <div
                 key={i}
-                style={{ overflow: 'hidden', paddingBottom: '0.12em', marginBottom: '-0.12em' }}
+                style={{ overflow: 'hidden', paddingBottom: '0.12em' }}
               >
                 <motion.span
                   initial={{ y: '110%' }}
@@ -59,7 +59,7 @@ export default function HomeHero({ heading, ctaLabel, ctaSecondary, subtitle, ba
                     fontFamily: 'Instrument Serif, Georgia, serif',
                     fontWeight: 400,
                     fontSize: 'clamp(3.5rem, 9vw, 8rem)',
-                    lineHeight: 0.93,
+                    lineHeight: 1.1,
                     letterSpacing: '-0.03em',
                     color: 'var(--light)',
                   }}
@@ -76,7 +76,7 @@ export default function HomeHero({ heading, ctaLabel, ctaSecondary, subtitle, ba
               initial={{ y: '100%', opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.55, ease: EASE }}
-              style={{ color: 'rgba(249,245,235,0.55)', fontSize: 18, maxWidth: 520 }}
+              style={{ color: 'rgba(249,245,235,0.7)', fontSize: 17, maxWidth: 520, fontFamily: 'Inter', lineHeight: "1.4em", marginBottom: "12px" }}
             >
               {subtitle}
             </motion.p>
@@ -99,7 +99,7 @@ export default function HomeHero({ heading, ctaLabel, ctaSecondary, subtitle, ba
                 fontSize: 14,
                 fontWeight: 600,
                 letterSpacing: '0.02em',
-                fontFamily: 'Inter, sans-serif',
+                fontFamily: 'Manrope, sans-serif',
                 transition: 'opacity 0.2s',
                 textDecoration: 'none',
                 display: 'inline-block',
@@ -117,7 +117,7 @@ export default function HomeHero({ heading, ctaLabel, ctaSecondary, subtitle, ba
                 fontSize: 14,
                 fontWeight: 500,
                 letterSpacing: '0.02em',
-                fontFamily: 'Inter, sans-serif',
+                fontFamily: 'Manrope, sans-serif',
                 transition: 'border-color 0.2s',
                 textDecoration: 'none',
                 display: 'inline-block',

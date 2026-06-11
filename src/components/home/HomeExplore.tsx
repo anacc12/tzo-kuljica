@@ -42,9 +42,10 @@ export default function HomeExplore({ sectionLabel, title, locale }: Props) {
         backgroundColor: 'var(--bg)',
         position: 'relative',
         overflow: 'hidden',
-        minHeight: '100vh',
+        minHeight: '120vh',
         display: 'flex',
         alignItems: 'center',
+        paddingBottom: "100px"
       }}
     >
       {/* Background images — absolute, full section, one per feature */}
@@ -74,7 +75,7 @@ export default function HomeExplore({ sectionLabel, title, locale }: Props) {
                 sizes="100vw"
                 priority
               />
-              <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(22,35,27,0.65)' }} />
+              <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(17,21,46,0.65)' }} />
             </motion.div>
           )}
         </AnimatePresence>
@@ -91,24 +92,10 @@ export default function HomeExplore({ sectionLabel, title, locale }: Props) {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                border: `1px solid ${hovered !== null ? 'rgba(249,245,235,0.25)' : 'rgba(22,35,27,0.2)'}`,
-                borderRadius: 999,
-                padding: '4px 16px',
-                fontFamily: 'Inter, sans-serif',
-                fontSize: 11,
-                letterSpacing: '0.22em',
-                textTransform: 'uppercase' as const,
-                fontWeight: 500,
-                color: hovered !== null ? 'rgba(249,245,235,0.6)' : 'rgba(22,35,27,0.5)',
-                transition: 'all 0.35s ease',
-              }}
-            >
-              {sectionLabel}
-            </span>
+            <div style={{ display: 'flex' }}>
+              <span className={hovered !== null ? 'label-badge light' : 'label-badge'}>{sectionLabel}</span>
+            </div>
+            
           </motion.div>
         </div>
 
@@ -157,7 +144,7 @@ export default function HomeExplore({ sectionLabel, title, locale }: Props) {
               {f.word}
               <span
                 style={{
-                  fontFamily: 'Inter, sans-serif',
+                  fontFamily: 'Manrope, sans-serif',
                   fontSize: '0.2em',
                   opacity: 0.55,
                   lineHeight: 1,

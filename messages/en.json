@@ -1,6 +1,6 @@
 {
   "nav": {
-    "aboutUs": "About us",
+    "aboutUs": "ABOUT US",
     "about": "General",
     "howToGetHere": "How to get here?",
     "landmarks": "Landmarks",
@@ -31,7 +31,7 @@
     "welcomeTitle": "Visit us and feel the beauty of Kukljica",
     "welcomeText": "The Municipality of Kukljica is a small tourist and fishing village on the island of Ugljan, with its first known written record from 1106. In addition to the settlement itself, it includes four small islands: Bisage, Golac, Mišnjak and Karantunić.",
     "exploreTitle": "Explore Kukljica.",
-    "exploreLabel": "Get to know us",
+    "exploreLabel": "Offers and activities",
     "beaches": "Beaches",
     "beachesDesc": "Our beautiful beaches are the hidden gems of the Adriatic.",
     "activeVacation": "Active vacation",
@@ -60,7 +60,7 @@
     "featuredTitle": "What is happening in Kukljica",
     "typeEvent": "Event",
     "typeBlog": "Post",
-    "heroBadge": "Welcome to Kukljica",
+    "heroBadge": "Welcome",
     "readMore": "Read more",
     "heroHeading": "Discover the beauty of Kukljica",
     "aboutSection1Label": "Island",

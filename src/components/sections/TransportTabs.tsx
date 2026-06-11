@@ -46,7 +46,7 @@ export default function TransportTabs() {
           <a href="https://prodaja.hzpp.hr/" target="_blank" rel="noopener noreferrer" className="mt-3 block text-sm text-olive-700 underline hover:text-olive-600">{t('trainLink')}</a>
         )}
         {active === 'plane' && (
-          <a href="https://www.zadar-airport.hr/" target="_blank" rel="noopener noreferrer" className="mt-3 block text-sm text-olive-700 underline hover:text-olive-600">Zadar Airport →</a>
+          <a href="https://www.zadar-airport.hr/" target="_blank" rel="noopener noreferrer" className="mt-3 block text-sm text-olive-700 underline hover:text-olive-600">Zadar Airport</a>
         )}
       </div>
     </FadeIn>

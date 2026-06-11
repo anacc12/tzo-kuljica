@@ -98,7 +98,7 @@ export default function HomeMarquee({ articles, readMoreLabel, locale }: Props) 
               <div style={{ flex: 1, minWidth: 0 }}>
                 <p
                   style={{
-                    fontFamily: 'Inter, sans-serif',
+                    fontFamily: 'Manrope, sans-serif',
                     fontSize: 11,
                     letterSpacing: '0.15em',
                     textTransform: 'uppercase',
@@ -112,8 +112,8 @@ export default function HomeMarquee({ articles, readMoreLabel, locale }: Props) 
                   <p
                     style={{
                       fontFamily: 'Instrument Serif, Georgia, serif',
-                      fontSize: 15,
-                      fontWeight: 400,
+                      fontSize: 18,
+                      fontWeight: 500,
                       color: 'var(--dark)',
                       lineHeight: 1.3,
                       overflow: 'hidden',
@@ -130,16 +130,16 @@ export default function HomeMarquee({ articles, readMoreLabel, locale }: Props) 
                   <Link
                     href={href}
                     style={{
-                      fontFamily: 'Inter, sans-serif',
+                      fontFamily: 'Manrope, sans-serif',
                       fontSize: 11,
                       color: 'rgba(22,35,27,0.5)',
                       textDecoration: 'none',
-                      letterSpacing: '0.05em',
+                      letterSpacing: '0em',
                       borderBottom: '1px solid rgba(22,35,27,0.25)',
                       paddingBottom: 1,
                     }}
                   >
-                    {readMoreLabel} →
+                    {readMoreLabel}
                   </Link>
                 )}
               </div>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@200..800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,10 +6,10 @@
 
 :root {
   
-  --light:   #f9f5eb;
-  --dark:    #16231b;
-  --bg:      #ece7d9;
-  --border-dark:  rgba(22, 35, 27, 0.16);
+  --light:   #EBECF3;
+  --dark:    #11152E;
+  --bg:      #dddee8;
+  --border-dark:  rgba(68, 68, 68, 0.16);
   --border-light: rgba(255, 255, 255, 0.16);
 
   --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -23,7 +23,7 @@
   }
 
   body {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Manrope', system-ui, sans-serif;
     color: var(--dark);
     background-color: var(--light);
     font-size: 16px;
@@ -84,21 +84,21 @@
 .label-badge {
   display: inline-flex;
   align-items: center;
-  border: 1px solid var(--border-dark);
+  border: 1px solid rgba(22, 35, 27, 0.2);
   border-radius: 999px;
-  padding: 4px 16px;
-  font-family: 'Inter', monospace;
-  font-size: 11px;
-  letter-spacing: 0.22em;
+  padding: 4px 8px;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   font-weight: 500;
-  line-height: 16px;
-  color: rgba(22, 35, 27, 0.55);
+  line-height: 1;
+  color: rgba(22, 35, 27, 0.95);
 }
 
 .label-badge.light {
-  border-color: var(--border-light);
-  color: rgba(249, 245, 235, 0.6);
+  border-color: rgba(249, 245, 235, 0.2);
+  color: var(--light);
 }
 
 .tz-container {

@@ -26,7 +26,7 @@ export default function UsefulLinksPage() {
                   <h3 className="font-medium text-forest-800">{link.name}</h3>
                   <a href={link.url} target="_blank" rel="noopener noreferrer"
                     className="text-sm text-olive-700 hover:text-olive-600 font-medium transition-colors">
-                    {t('visit')} →
+                    {t('visit')}
                   </a>
                 </div>
               </FadeIn>

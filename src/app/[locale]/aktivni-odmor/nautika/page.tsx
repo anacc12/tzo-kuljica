@@ -49,7 +49,7 @@ export default function NautikaPage() {
               <p className="text-forest-700 mb-2">{t('harbourFeatures')}</p>
               <p className="text-forest-600/80 text-sm whitespace-pre-line mb-6">{t('harbourContact')}</p>
               <Link href={`/o-nama`} className="inline-flex items-center gap-2 bg-forest-800 hover:bg-forest-700 text-white text-sm font-medium px-6 py-3 transition-colors">
-                {t('contactUs')} →
+                {t('contactUs')}
               </Link>
             </div>
           </FadeIn>

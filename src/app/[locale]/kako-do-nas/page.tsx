@@ -24,7 +24,7 @@ export default function HowToGetPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-forest-800 hover:bg-forest-700 text-white text-sm font-medium px-6 py-3 transition-colors mb-16"
             >
-              {t('showOnMap')} →
+              {t('showOnMap')}
             </a>
           </FadeIn>
           <TransportTabs />

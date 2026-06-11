@@ -59,7 +59,7 @@ export default function HomeAbout({ sections, cta }: Props) {
             >
               <span
                 style={{
-                  fontFamily: 'Inter, sans-serif',
+                  fontFamily: 'Manrope, sans-serif',
                   fontSize: 11,
                   letterSpacing: '0.22em',
                   textTransform: 'uppercase',
@@ -95,7 +95,7 @@ export default function HomeAbout({ sections, cta }: Props) {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: 8,
-                  fontFamily: 'Inter, sans-serif',
+                  fontFamily: 'Manrope, sans-serif',
                   fontSize: 13,
                   fontWeight: 500,
                   color: 'var(--light)',
@@ -115,7 +115,7 @@ export default function HomeAbout({ sections, cta }: Props) {
                   e.currentTarget.style.backgroundColor = 'transparent'
                 }}
               >
-                {cta} →
+                {cta}
               </Link>
             </div>
           ))}

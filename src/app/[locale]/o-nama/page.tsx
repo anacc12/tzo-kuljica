@@ -119,7 +119,7 @@ export default function AboutPage() {
                 className="inline-flex items-center gap-2 font-sans text-sm font-medium"
                 style={{ color: 'var(--dark)', borderBottom: '1px solid rgba(22,35,27,0.4)', paddingBottom: 2 }}
               >
-                {t('showMore')} →
+                {t('showMore')}
               </Link>
             </FadeIn>
             <div className="grid grid-cols-3 gap-3">

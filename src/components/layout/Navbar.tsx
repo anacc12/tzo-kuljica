@@ -79,6 +79,22 @@ export default function Navbar() {
 
   const otherLocale = locale === 'hr' ? 'en' : 'hr'
 
+  // Color tokens — flip on scroll
+  const c = {
+    text:        scrolled ? 'rgba(22,35,27,0.7)'    : 'rgba(249,245,235,0.7)',
+    textHover:   scrolled ? 'var(--dark)'            : 'var(--light)',
+    subtle:      scrolled ? 'rgba(22,35,27,0.5)'    : 'rgba(249,245,235,0.55)',
+    subtleHover: scrolled ? 'var(--dark)'            : 'var(--light)',
+    border:      scrolled ? 'rgba(22,35,27,0.1)'    : 'rgba(249,245,235,0.1)',
+    dropBg:      scrolled ? 'var(--light)'           : 'var(--dark)',
+    dropBorder:  scrolled ? 'rgba(22,35,27,0.1)'    : 'rgba(249,245,235,0.1)',
+    dropText:    scrolled ? 'rgba(22,35,27,0.65)'   : 'rgba(249,245,235,0.65)',
+    dropTextHov: scrolled ? 'var(--dark)'            : 'var(--light)',
+    btnBg:       scrolled ? 'var(--dark)'            : 'var(--light)',
+    btnColor:    scrolled ? 'var(--light)'           : 'var(--dark)',
+    icon:        scrolled ? 'var(--dark)'            : 'var(--light)',
+  }
+
   return (
     <nav
       style={{
@@ -87,7 +103,8 @@ export default function Navbar() {
         left: 0,
         right: 0,
         zIndex: 50,
-        backgroundColor: 'var(--dark)',
+        backgroundColor: scrolled ? 'var(--light)' : 'var(--dark)',
+        transition: 'background-color 0.3s ease',
       }}
     >
       <div
@@ -103,29 +120,13 @@ export default function Navbar() {
         }}
       >
         {/* Logo */}
-        <Link href="/" style={{ flexShrink: 0 }}>
-          <div
-            style={{
-              width: 36,
-              height: 36,
-              backgroundColor: '#8B7427',
-              borderRadius: 4,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            <span
-              style={{
-                color: 'white',
-                fontFamily: 'Instrument Serif, Georgia, serif',
-                fontWeight: 400,
-                fontSize: 18,
-              }}
-            >
-              K
-            </span>
-          </div>
+        <Link href="/" style={{ flexShrink: 0, display: 'flex', alignItems: 'center' }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={scrolled ? '/logo-dark.png' : '/logo-light.png'}
+            alt="TZ Kukljica"
+            style={{ height: 36, width: 'auto', objectFit: 'contain', transition: 'opacity 0.3s ease' }}
+          />
         </Link>
 
         {/* Desktop nav — centered */}
@@ -146,16 +147,16 @@ export default function Navbar() {
                     alignItems: 'center',
                     gap: 4,
                     padding: '8px 12px',
-                    fontFamily: 'Inter, sans-serif',
+                    fontFamily: 'Manrope, sans-serif',
                     fontSize: 13,
                     fontWeight: 400,
                     letterSpacing: '0.01em',
-                    color: 'rgba(249,245,235,0.7)',
+                    color: c.text,
                     textDecoration: 'none',
                     transition: 'color 0.2s',
                   }}
-                  onMouseEnter={e => (e.currentTarget.style.color = 'var(--light)')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(249,245,235,0.7)')}
+                  onMouseEnter={e => (e.currentTarget.style.color = c.textHover)}
+                  onMouseLeave={e => (e.currentTarget.style.color = c.text)}
                 >
                   {item.label}
                 </Link>
@@ -166,11 +167,11 @@ export default function Navbar() {
                     alignItems: 'center',
                     gap: 4,
                     padding: '8px 12px',
-                    fontFamily: 'Inter, sans-serif',
+                    fontFamily: 'Manrope, sans-serif',
                     fontSize: 13,
                     fontWeight: 400,
                     letterSpacing: '0.01em',
-                    color: 'rgba(249,245,235,0.7)',
+                    color: c.text,
                     background: 'none',
                     border: 'none',
                     cursor: 'pointer',
@@ -194,8 +195,8 @@ export default function Navbar() {
                       top: '100%',
                       left: 0,
                       marginTop: 4,
-                      backgroundColor: '#1a2f0e',
-                      border: '1px solid rgba(249,245,235,0.1)',
+                      backgroundColor: c.dropBg,
+                      border: `1px solid ${c.dropBorder}`,
                       borderRadius: 4,
                       minWidth: 200,
                       padding: '8px 0',
@@ -210,14 +211,14 @@ export default function Navbar() {
                         style={{
                           display: 'block',
                           padding: '8px 16px',
-                          fontFamily: 'Inter, sans-serif',
+                          fontFamily: 'Manrope, sans-serif',
                           fontSize: 13,
-                          color: 'rgba(249,245,235,0.65)',
+                          color: c.dropText,
                           textDecoration: 'none',
                           transition: 'color 0.15s',
                         }}
-                        onMouseEnter={e => (e.currentTarget.style.color = 'var(--light)')}
-                        onMouseLeave={e => (e.currentTarget.style.color = 'rgba(249,245,235,0.65)')}
+                        onMouseEnter={e => (e.currentTarget.style.color = c.textHover)}
+                        onMouseLeave={e => (e.currentTarget.style.color = c.dropText)}
                       >
                         {sub.label}
                       </Link>
@@ -240,17 +241,17 @@ export default function Navbar() {
               display: 'flex',
               alignItems: 'center',
               gap: 6,
-              fontFamily: 'Inter, sans-serif',
+              fontFamily: 'Manrope, sans-serif',
               fontSize: 12,
               fontWeight: 500,
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
-              color: 'rgba(249,245,235,0.55)',
+              color: c.subtle,
               textDecoration: 'none',
               transition: 'color 0.2s',
             }}
-            onMouseEnter={e => (e.currentTarget.style.color = 'var(--light)')}
-            onMouseLeave={e => (e.currentTarget.style.color = 'rgba(249,245,235,0.55)')}
+            onMouseEnter={e => (e.currentTarget.style.color = c.textHover)}
+            onMouseLeave={e => (e.currentTarget.style.color = c.subtle)}
           >
             <Globe style={{ width: 14, height: 14 }} />
             {otherLocale}
@@ -260,11 +261,11 @@ export default function Navbar() {
             className="hidden lg:flex"
             style={{
               alignItems: 'center',
-              backgroundColor: 'var(--light)',
-              color: 'var(--dark)',
+              backgroundColor: c.btnBg,
+              color: c.btnColor,
               padding: '9px 20px',
               borderRadius: 999,
-              fontFamily: 'Inter, sans-serif',
+              fontFamily: 'Manrope, sans-serif',
               fontSize: 13,
               fontWeight: 500,
               textDecoration: 'none',
@@ -281,13 +282,13 @@ export default function Navbar() {
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="lg:hidden"
-            style={{ color: 'var(--light)', background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
+            style={{ color: c.icon, background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
           >
             {mobileOpen ? <X style={{ width: 20, height: 20 }} /> : <Menu style={{ width: 20, height: 20 }} />}
           </button>
         </div>
       </div>
-      <div style={{ height: 1, backgroundColor: 'rgba(249,245,235,0.1)' }} />
+      <div style={{ height: 1, backgroundColor: c.border }} />
 
       {/* Mobile menu */}
       <AnimatePresence>

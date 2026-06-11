@@ -42,7 +42,7 @@ export default function HikingPage() {
               </div>
               <a href="https://cdn.prod.website-files.com/67e320f1dcdaf05e33698750/683f3d80a53520d3033b3679_Trail%20map%20Ugljan-Pasman%202025_web.pdf" target="_blank" rel="noopener noreferrer"
                 className="mt-6 inline-flex items-center gap-2 bg-forest-800 hover:bg-forest-700 text-white text-sm font-medium px-6 py-3 transition-colors">
-                {t('viewRoute')} →
+                {t('viewRoute')}
               </a>
             </div>
           </FadeIn>

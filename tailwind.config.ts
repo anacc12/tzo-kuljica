@@ -11,8 +11,8 @@ const config: Config = {
       colors: {
         forest: {
           950: '#0D160A',
-          900: '#16231b',  // Franco's --dark (slightly warmer)
-          800: '#1A2F0E',  // Navbar background
+          900: '#11152E',  
+          800: '#11152E',  
           700: '#243C14',
           600: '#2F4D1A',
           500: '#3D6622',
@@ -28,16 +28,16 @@ const config: Config = {
         },
         sand: {
           50:  '#FDFBF7',  // Nearly white warm
-          100: '#F9F5EB',  // Franco's --light (exact match)
-          200: '#ECE7D9',  // Franco's --bg
-          300: '#E2D4BF',
+          100: '#EBECF3',  
+          200: '#EBECF3',  
+          300: '#EBECF3',
           400: '#C8B99A',
         },
-        cream: '#F9F5EB',
+        cream: '#EBECF3',
       },
       fontFamily: {
         display: ['Instrument Serif', 'Georgia', 'serif'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Manrope', 'system-ui', 'sans-serif'],
         mono: ['Geist Mono', 'monospace'],
       },
       fontSize: {
