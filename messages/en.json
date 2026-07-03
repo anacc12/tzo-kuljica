@@ -233,7 +233,10 @@
     "filter_a2": "A2–A3",
     "filter_a4": "A4",
     "filter_a5plus": "A5+",
-    "filter_kuca": "House"
+    "filter_kuca": "House",
+    "loadMore": "Load more",
+    "noResults": "No results.",
+    "of": "of"
   },
   "events": {
     "title": "Events",

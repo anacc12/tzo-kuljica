@@ -44,6 +44,32 @@ export function getCategories(types: string | undefined): FilterCategory[] {
 export const APARTMENTS: Apartment[] = [
   // ── KUKLJICA (bez oznake ulice) ───────────────────────────────────────────
   {
+    slug: 'host-zeljka',
+    name: 'Host Željka',
+    addressProperty: '23272 Kukljica',
+    email: 'zeljkahost@gmail.com',
+    images: [],
+  },
+  {
+    slug: 'jaqueline',
+    name: 'Jaqueline Lilly Mira Bilan',
+    addressProperty: 'Ulica II 81, 23272 Kukljica',
+    phones: ['0046 7236 210 601'],
+    images: [],
+  },
+  {
+    slug: 'martic-mato',
+    name: 'Martić Mato',
+    addressProperty: '23272 Kukljica',
+    images: [],
+  },
+  {
+    slug: 'velimirovic-lucija',
+    name: 'Velimirović Lucija',
+    addressProperty: '23272 Kukljica',
+    images: [],
+  },
+  {
     slug: 'benic-mladen',
     name: 'Benić Mladen',
     addressProperty: 'Kukljica 22, 23272 Kukljica',

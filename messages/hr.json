@@ -233,7 +233,10 @@
     "filter_a2": "A2–A3",
     "filter_a4": "A4",
     "filter_a5plus": "A5+",
-    "filter_kuca": "Kuća"
+    "filter_kuca": "Kuća",
+    "loadMore": "Učitaj više",
+    "noResults": "Nema rezultata.",
+    "of": "od"
   },
   "events": {
     "title": "Događanja",

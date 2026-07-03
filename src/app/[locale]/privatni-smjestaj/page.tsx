@@ -2,6 +2,7 @@ import { getTranslations } from 'next-intl/server'
 import PageHero from '@/components/sections/PageHero'
 import ApartmentGrid from '@/components/sections/ApartmentGrid'
 import { APARTMENTS, FILTER_LABELS, type FilterCategory } from '@/data/apartments'
+import { getFirstImage } from '@/lib/gallery'
 
 export default async function AccommodationPage() {
   const t = await getTranslations('accommodation')
@@ -10,6 +11,19 @@ export default async function AccommodationPage() {
   const filterLabels = Object.fromEntries(
     Object.entries(FILTER_LABELS).map(([k]) => [k, tp(`filter_${k}`)])
   ) as Record<FilterCategory, string>
+
+  const thumbnails = Object.fromEntries(
+    APARTMENTS.map(apt => [apt.slug, getFirstImage(apt.slug)])
+  ) as Record<string, string | null>
+
+  const sorted = [...APARTMENTS].sort((a, b) => {
+    const aHas = !!thumbnails[a.slug]
+    const bHas = !!thumbnails[b.slug]
+    if (aHas && !bHas) return -1
+    if (!aHas && bHas) return 1
+    if (!aHas && !bHas) return a.name.localeCompare(b.name, 'hr')
+    return 0
+  })
 
   return (
     <>
@@ -38,9 +52,13 @@ export default async function AccommodationPage() {
           <div className="divider" style={{ marginBottom: 48 }} />
 
           <ApartmentGrid
-            apartments={APARTMENTS}
+            apartments={sorted}
             filterLabels={filterLabels}
             allLabel={tp('filter_all')}
+            thumbnails={thumbnails}
+            loadMoreLabel={tp('loadMore')}
+            noResultsLabel={tp('noResults')}
+            ofLabel={tp('of')}
           />
         </div>
       </section>
