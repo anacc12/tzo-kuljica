@@ -27,7 +27,7 @@ export default function HomeHero({ heading, ctaLabel, ctaSecondary, subtitle, ba
   }, [])
 
   return (
-    <section style={{ backgroundColor: 'var(--dark)', color: 'var(--light)', paddingTop: 200, paddingBottom: 0 }}>
+    <section style={{ backgroundColor: 'var(--dark)', color: 'var(--light)', paddingTop: 200, paddingBottom: 40 }}>
       <div className="tz-container">
 
         {/* Top tile: label + heading + subtitle + buttons */}
@@ -99,7 +99,7 @@ export default function HomeHero({ heading, ctaLabel, ctaSecondary, subtitle, ba
                 fontSize: 14,
                 fontWeight: 600,
                 letterSpacing: '0.02em',
-                fontFamily: 'Manrope, sans-serif',
+                fontFamily: 'Geist, sans-serif',
                 transition: 'opacity 0.2s',
                 textDecoration: 'none',
                 display: 'inline-block',
@@ -117,7 +117,7 @@ export default function HomeHero({ heading, ctaLabel, ctaSecondary, subtitle, ba
                 fontSize: 14,
                 fontWeight: 500,
                 letterSpacing: '0.02em',
-                fontFamily: 'Manrope, sans-serif',
+                fontFamily: 'Geist, sans-serif',
                 transition: 'border-color 0.2s',
                 textDecoration: 'none',
                 display: 'inline-block',

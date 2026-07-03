@@ -73,7 +73,7 @@ export default function HomeWelcome({ label, title, body, cta }: Props) {
             </h2>
             <p
               style={{
-                fontFamily: 'Manrope, sans-serif',
+                fontFamily: 'Geist, sans-serif',
                 fontSize: 16,
                 lineHeight: 1.4,
                 color: 'rgba(22,35,27,0.8)',
@@ -88,7 +88,7 @@ export default function HomeWelcome({ label, title, body, cta }: Props) {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 8,
-                fontFamily: 'Manrope, sans-serif',
+                fontFamily: 'Geist, sans-serif',
                 fontSize: 14,
                 fontWeight: 500,
                 color: 'var(--dark)',

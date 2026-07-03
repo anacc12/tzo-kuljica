@@ -37,7 +37,7 @@ const config: Config = {
       },
       fontFamily: {
         display: ['Instrument Serif', 'Georgia', 'serif'],
-        sans: ['Manrope', 'system-ui', 'sans-serif'],
+        sans: ['Geist', 'system-ui', 'sans-serif'],
         mono: ['Geist Mono', 'monospace'],
       },
       fontSize: {

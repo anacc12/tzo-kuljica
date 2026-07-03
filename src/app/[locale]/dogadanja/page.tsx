@@ -20,42 +20,156 @@ export default async function EventsPage({ params: { locale } }: { params: { loc
     <>
       <PageHero title={t('title')} subtitle={t('heroSubtitle')} images={HERO_IMAGES}
         label="Događanja" />
-      <section className="py-20" style={{backgroundColor: "var(--light)"}}>
-        <div className="max-w-7xl mx-auto px-6">
+
+      <section style={{ backgroundColor: 'var(--bg)', paddingTop: 100, paddingBottom: 120 }}>
+        <div className="tz-container">
+          {/* Header row */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'flex-end',
+              justifyContent: 'space-between',
+              marginBottom: 56,
+              gap: 24,
+            }}
+          >
+            <FadeIn>
+              <h2
+                style={{
+                  fontFamily: 'Instrument Serif, Georgia, serif',
+                  fontSize: 'clamp(2.4rem, 4.5vw, 4rem)',
+                  fontWeight: 400,
+                  lineHeight: 1.05,
+                  letterSpacing: '-0.03em',
+                  color: 'var(--dark)',
+                  maxWidth: 480,
+                }}
+              >
+                {t('heroSubtitle')}
+              </h2>
+            </FadeIn>
+            <FadeIn delay={0.1}>
+              <span className="label-badge">Događanja</span>
+            </FadeIn>
+          </div>
+
+          <div className="divider" style={{ marginBottom: 56 }} />
+
           {events.length === 0 ? (
-            <FadeIn><p className="text-forest-600/60">{t('noEvents')}</p></FadeIn>
+            <FadeIn>
+              <p style={{ color: 'rgba(22,35,27,0.5)', fontFamily: 'Geist, sans-serif', fontSize: 15 }}>
+                {t('noEvents')}
+              </p>
+            </FadeIn>
           ) : (
-            <div className="space-y-6">
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(3, 1fr)',
+                gap: 'clamp(24px, 3vw, 40px)',
+              }}
+              className="events-grid"
+            >
               {events.map((event, i) => (
-                <FadeIn key={event._id} delay={i * 0.06}>
-                  <div className="grid md:grid-cols-[200px_1fr_auto] gap-6 items-center border-b border-sand-200 pb-6">
-                    {event.thumbnail ? (
-                      <div className="relative aspect-[4/3] rounded-sm overflow-hidden">
-                        <Image src={event.thumbnail.asset.url} alt={event.title} fill className="object-cover" sizes="200px" />
-                      </div>
-                    ) : (
-                      <div className="aspect-[4/3] bg-sand-100 rounded-sm flex items-center justify-center">
-                        <span className="text-4xl">🎭</span>
-                      </div>
-                    )}
-                    <div>
-                      <p className="text-sm text-olive-600 font-medium mb-1">
-                        {formatDate(event.startDate!, locale)}
-                        {event.endDate && event.endDate !== event.startDate && ` — ${formatDate(event.endDate, locale)}`}
-                      </p>
-                      {event.location && (
-                        <p className="text-xs text-forest-600/60 mb-1">📍 {event.location}</p>
-                      )}
-                      <h3 className="font-display text-2xl text-forest-800 font-medium mb-2">{event.title}</h3>
-                      <p className="text-forest-600/80 text-sm">{event.shortDescription}</p>
-                    </div>
-                    <Link
-                      href={{ pathname: '/dogadanja/[slug]', params: { slug: event.slug.current } }}
-                      className="flex-shrink-0 border border-forest-800 text-forest-800 hover:bg-forest-800 hover:text-white text-sm font-medium px-5 py-2.5 transition-colors"
+                <FadeIn key={event._id} delay={i * 0.07}>
+                  <Link
+                    href={{ pathname: '/dogadanja/[slug]', params: { slug: event.slug.current } }}
+                    style={{ display: 'block', textDecoration: 'none' }}
+                    className="event-card-link"
+                  >
+                    {/* Image */}
+                    <div
+                      style={{
+                        position: 'relative',
+                        aspectRatio: '4/3',
+                        borderRadius: 8,
+                        overflow: 'hidden',
+                        marginBottom: 20,
+                        backgroundColor: 'rgba(17,21,46,0.06)',
+                      }}
                     >
-                      {t('findOutMore')}
-                    </Link>
-                  </div>
+                      {event.thumbnail ? (
+                        <Image
+                          src={event.thumbnail.asset.url}
+                          alt={event.title}
+                          fill
+                          className="object-cover event-card-img"
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                          priority={i < 3}
+                        />
+                      ) : (
+                        <div
+                          style={{
+                            position: 'absolute',
+                            inset: 0,
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                          }}
+                        >
+                          <span style={{ fontFamily: 'Instrument Serif, Georgia, serif', fontSize: 40, opacity: 0.15, color: 'var(--dark)' }}>TZO</span>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Meta: category · date */}
+                    <div
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 8,
+                        marginBottom: 10,
+                        fontFamily: 'Roboto Condensed, sans-serif',
+                        fontSize: 11,
+                        letterSpacing: '0.06em',
+                        textTransform: 'uppercase',
+                        color: 'rgba(22,35,27,0.45)',
+                      }}
+                    >
+                      <span>Događanje</span>
+                      <span>·</span>
+                      <span>{event.startDate ? formatDate(event.startDate, locale) : ''}</span>
+                      {event.location && (
+                        <>
+                          <span>·</span>
+                          <span>{event.location}</span>
+                        </>
+                      )}
+                    </div>
+
+                    {/* Title */}
+                    <h3
+                      style={{
+                        fontFamily: 'Instrument Serif, Georgia, serif',
+                        fontSize: 'clamp(1.3rem, 1.8vw, 1.65rem)',
+                        fontWeight: 400,
+                        lineHeight: 1.2,
+                        letterSpacing: '-0.02em',
+                        color: 'var(--dark)',
+                        marginBottom: 12,
+                      }}
+                    >
+                      {event.title}
+                    </h3>
+
+                    {/* Short description */}
+                    {event.shortDescription && (
+                      <p
+                        style={{
+                          fontFamily: 'Geist, system-ui, sans-serif',
+                          fontSize: 14,
+                          lineHeight: 1.6,
+                          color: 'rgba(22,35,27,0.55)',
+                          display: '-webkit-box',
+                          WebkitLineClamp: 2,
+                          WebkitBoxOrient: 'vertical',
+                          overflow: 'hidden',
+                        }}
+                      >
+                        {event.shortDescription}
+                      </p>
+                    )}
+                  </Link>
                 </FadeIn>
               ))}
             </div>

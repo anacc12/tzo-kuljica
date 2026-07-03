@@ -144,7 +144,7 @@ export default function HomeExplore({ sectionLabel, title, locale }: Props) {
               {f.word}
               <span
                 style={{
-                  fontFamily: 'Manrope, sans-serif',
+                  fontFamily: 'Geist, sans-serif',
                   fontSize: '0.2em',
                   opacity: 0.55,
                   lineHeight: 1,

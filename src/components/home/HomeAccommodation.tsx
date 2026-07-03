@@ -74,7 +74,7 @@ export default function HomeAccommodation({ label, title, cta, detailsLabel = 'P
             <Link
               href="/privatni-smjestaj"
               style={{
-                fontFamily: 'Manrope, sans-serif',
+                fontFamily: 'Geist, sans-serif',
                 fontSize: 14,
                 fontWeight: 500,
                 color: 'var(--dark)',
@@ -157,7 +157,7 @@ export default function HomeAccommodation({ label, title, cta, detailsLabel = 'P
                 <span style={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  fontFamily: 'Manrope, sans-serif',
+                  fontFamily: 'Geist, sans-serif',
                   fontSize: 12,
                   fontWeight: 500,
                   color: 'rgba(249,245,235,0.75)',

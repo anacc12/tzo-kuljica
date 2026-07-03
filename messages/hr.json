@@ -219,6 +219,22 @@
     "heroSubtitle": "Vrhunska ponuda smještaja u Kukljici",
     "viewDetails": "Pogledaj detalje"
   },
+  "accommodationPage": {
+    "label": "Privatni smještaj",
+    "backLink": "← Privatni smještaj",
+    "contactTitle": "Kontakt i informacije",
+    "addressLabel": "Adresa",
+    "phonesLabel": "Telefon",
+    "emailLabel": "E-mail",
+    "typesLabel": "Vrste smještaja",
+    "galleryTitle": "Galerija",
+    "filter_all": "Sve",
+    "filter_studio": "Studio",
+    "filter_a2": "A2–A3",
+    "filter_a4": "A4",
+    "filter_a5plus": "A5+",
+    "filter_kuca": "Kuća"
+  },
   "events": {
     "title": "Događanja",
     "heroSubtitle": "Otkrijte događanja u Kukljici",

@@ -219,6 +219,22 @@
     "heroSubtitle": "Top accommodation offer in Kukljica",
     "viewDetails": "View details"
   },
+  "accommodationPage": {
+    "label": "Private accommodation",
+    "backLink": "← Private accommodation",
+    "contactTitle": "Contact & information",
+    "addressLabel": "Address",
+    "phonesLabel": "Phone",
+    "emailLabel": "E-mail",
+    "typesLabel": "Accommodation types",
+    "galleryTitle": "Gallery",
+    "filter_all": "All",
+    "filter_studio": "Studio",
+    "filter_a2": "A2–A3",
+    "filter_a4": "A4",
+    "filter_a5plus": "A5+",
+    "filter_kuca": "House"
+  },
   "events": {
     "title": "Events",
     "heroSubtitle": "Discover events in Kukljica",

@@ -94,7 +94,7 @@ export default function HomeNews({ articles, label, title, locale }: Props) {
                       position: 'absolute',
                       top: 6,
                       left: 6,
-                      fontFamily: 'Manrope, sans-serif',
+                      fontFamily: 'Geist, sans-serif',
                       fontSize: 11,
                       letterSpacing: '0.12em',
                       textTransform: 'uppercase',
@@ -112,7 +112,7 @@ export default function HomeNews({ articles, label, title, locale }: Props) {
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                     <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
                       {dateLabel && (
-                        <span style={{ fontFamily: 'Manrope, sans-serif', fontSize: 13, color: 'rgba(22,35,27,0.5)' }}>
+                        <span style={{ fontFamily: 'Geist, sans-serif', fontSize: 13, color: 'rgba(22,35,27,0.5)' }}>
                           {dateLabel}
                         </span>
                       )}
@@ -132,7 +132,7 @@ export default function HomeNews({ articles, label, title, locale }: Props) {
                       {article.title}
                     </h3>
                     {article.shortDescription && (
-                      <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 14, color: 'rgba(22,35,27,0.5)', lineHeight: 1.6, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                      <p style={{ fontFamily: 'Geist, sans-serif', fontSize: 14, color: 'rgba(22,35,27,0.5)', lineHeight: 1.6, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
                         {article.shortDescription}
                       </p>
                     )}

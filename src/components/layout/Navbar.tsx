@@ -123,7 +123,7 @@ export default function Navbar() {
         <Link href="/" style={{ flexShrink: 0, display: 'flex', alignItems: 'center' }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={scrolled ? '/logo-dark.png' : '/logo-light.png'}
+            src={scrolled ? '/logo-dark-1.png' : '/logo-light-1.png'}
             alt="TZ Kukljica"
             style={{ height: 36, width: 'auto', objectFit: 'contain', transition: 'opacity 0.3s ease' }}
           />
@@ -147,7 +147,7 @@ export default function Navbar() {
                     alignItems: 'center',
                     gap: 4,
                     padding: '8px 12px',
-                    fontFamily: 'Manrope, sans-serif',
+                    fontFamily: 'Geist, sans-serif',
                     fontSize: 13,
                     fontWeight: 400,
                     letterSpacing: '0.01em',
@@ -167,7 +167,7 @@ export default function Navbar() {
                     alignItems: 'center',
                     gap: 4,
                     padding: '8px 12px',
-                    fontFamily: 'Manrope, sans-serif',
+                    fontFamily: 'Geist, sans-serif',
                     fontSize: 13,
                     fontWeight: 400,
                     letterSpacing: '0.01em',
@@ -211,7 +211,7 @@ export default function Navbar() {
                         style={{
                           display: 'block',
                           padding: '8px 16px',
-                          fontFamily: 'Manrope, sans-serif',
+                          fontFamily: 'Geist, sans-serif',
                           fontSize: 13,
                           color: c.dropText,
                           textDecoration: 'none',
@@ -241,7 +241,7 @@ export default function Navbar() {
               display: 'flex',
               alignItems: 'center',
               gap: 6,
-              fontFamily: 'Manrope, sans-serif',
+              fontFamily: 'Geist, sans-serif',
               fontSize: 12,
               fontWeight: 500,
               letterSpacing: '0.1em',
@@ -265,7 +265,7 @@ export default function Navbar() {
               color: c.btnColor,
               padding: '9px 20px',
               borderRadius: 999,
-              fontFamily: 'Manrope, sans-serif',
+              fontFamily: 'Geist, sans-serif',
               fontSize: 13,
               fontWeight: 500,
               textDecoration: 'none',

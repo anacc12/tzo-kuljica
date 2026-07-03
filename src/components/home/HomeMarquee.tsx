@@ -98,7 +98,7 @@ export default function HomeMarquee({ articles, readMoreLabel, locale }: Props) 
               <div style={{ flex: 1, minWidth: 0 }}>
                 <p
                   style={{
-                    fontFamily: 'Manrope, sans-serif',
+                    fontFamily: 'Geist, sans-serif',
                     fontSize: 11,
                     letterSpacing: '0.15em',
                     textTransform: 'uppercase',
@@ -130,7 +130,7 @@ export default function HomeMarquee({ articles, readMoreLabel, locale }: Props) 
                   <Link
                     href={href}
                     style={{
-                      fontFamily: 'Manrope, sans-serif',
+                      fontFamily: 'Geist, sans-serif',
                       fontSize: 11,
                       color: 'rgba(22,35,27,0.5)',
                       textDecoration: 'none',
