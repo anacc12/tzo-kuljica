@@ -114,7 +114,7 @@ export default function HomeExplore({ sectionLabel, title, locale }: Props) {
           {FEATURES.map((f, i) => (
             <Link
               key={i}
-              href={f.href}
+              href={f.href as '/'}
               onMouseEnter={() => setHovered(i)}
               onMouseLeave={() => setHovered(null)}
               style={{

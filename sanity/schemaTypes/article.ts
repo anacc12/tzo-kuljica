@@ -92,7 +92,7 @@ export const articleType = defineType({
       name: 'slug',
       title: 'Slug (URL)',
       type: 'slug',
-      options: { source: (doc: { title?: { hr?: string } }) => doc.title?.hr ?? '' },
+      options: { source: (doc: Record<string, unknown>) => (doc.title as { hr?: string } | undefined)?.hr ?? '' },
       validation: r => r.required(),
     }),
 

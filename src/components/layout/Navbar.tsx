@@ -304,7 +304,7 @@ export default function Navbar() {
                 <div key={item.label}>
                   {item.href ? (
                     <Link
-                      href={item.href}
+                      href={item.href as '/'}
                       className="block py-2.5 text-white/80 text-sm font-medium tracking-wider uppercase"
                     >
                       {item.label}
@@ -329,7 +329,7 @@ export default function Navbar() {
                             {item.dropdown?.map((sub) => (
                               <Link
                                 key={sub.href}
-                                href={sub.href}
+                                href={sub.href as '/'}
                                 className="block py-2 text-sm text-white/60 hover:text-white transition-colors"
                               >
                                 {sub.label}
@@ -349,7 +349,7 @@ export default function Navbar() {
                 >
                   {t('contact')}
                 </Link>
-                <Link href={pathname} locale={otherLocale} className="text-white/70 text-sm uppercase font-medium">
+                <Link href={pathname as '/'} locale={otherLocale} className="text-white/70 text-sm uppercase font-medium">
                   {otherLocale}
                 </Link>
               </div>
