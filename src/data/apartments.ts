@@ -9,6 +9,7 @@ export interface Apartment {
   phones?: string[]          // all numbers (landline + mobile)
   email?: string
   types?: string             // e.g. "A4, AS4 x2, A2+1" — shown as-is
+  featured?: boolean         // shown in homepage carousel
   description?: {
     hr: string
     en: string
@@ -89,6 +90,7 @@ export const APARTMENTS: Apartment[] = [
   {
     slug: 'jelicic-dino',
     name: 'Jeličić Dino',
+    featured: true,
     addressProperty: 'Kukljica 2, 23272 Kukljica',
     phones: ['023 373 578', '023 332 085', '098 908 8734', '098 177 1262'],
     email: 'ivona.jelicic1205@gmail.com',
@@ -126,6 +128,7 @@ export const APARTMENTS: Apartment[] = [
   {
     slug: 'bacic-ana',
     name: 'Bačić Ana',
+    featured: true,
     addressProperty: 'Ulica I br. 26, 23272 Kukljica',
     phones: ['091 497 6207'],
     email: 'lavanda.kukljica@gmail.com',
@@ -229,6 +232,7 @@ export const APARTMENTS: Apartment[] = [
   {
     slug: 'bilan-ljiljana',
     name: 'Bilan Ljiljana',
+    featured: true,
     addressProperty: 'Ulica II 73, 23272 Kukljica',
     phones: ['023 373 387', '099 695 0388'],
     email: 'lilli.bilan@gmail.com',
@@ -247,6 +251,7 @@ export const APARTMENTS: Apartment[] = [
   {
     slug: 'bosotina-alvira',
     name: 'Bosotina Alvira',
+    featured: true,
     addressProperty: 'Ulica II 7, 23272 Kukljica',
     phones: ['023 373 566', '023 331 906', '098 924 8431'],
     email: 'jadrankacaricbos@gmail.com',
@@ -264,6 +269,7 @@ export const APARTMENTS: Apartment[] = [
   {
     slug: 'bosotina-sime',
     name: 'Bosotina Šime',
+    featured: true,
     addressProperty: 'Ulica II br. 21, 23272 Kukljica',
     phones: ['023 373 568', '098 761 253'],
     email: 'mcanatalija@gmail.com',
@@ -280,6 +286,7 @@ export const APARTMENTS: Apartment[] = [
   {
     slug: 'bozicevic-mladen',
     name: 'Božičević Mladen',
+    featured: true,
     addressProperty: 'Ulica II br. 207, 23272 Kukljica',
     phones: ['092 285 7863', '091 537 1796'],
     email: 'bozicevicmladen5@gmail.com',
@@ -404,6 +411,7 @@ export const APARTMENTS: Apartment[] = [
   {
     slug: 'tuta-mile',
     name: 'Tuta Mile',
+    featured: true,
     addressProperty: 'Ulica II 117, 23272 Kukljica',
     phones: ['023 788 8194', '098 838 649'],
     email: 'mila.tuta1@gmail.com',
@@ -413,6 +421,7 @@ export const APARTMENTS: Apartment[] = [
   {
     slug: 'vojvodic-ante',
     name: 'Vojvodić Ante',
+    featured: true,
     addressProperty: 'Ulica II br. 93, 23272 Kukljica',
     phones: ['023 373 637', '098 331 867'],
     email: 'miro.peric@vodatel.net',
@@ -438,6 +447,7 @@ export const APARTMENTS: Apartment[] = [
   {
     slug: 'vojvodic-mladen',
     name: 'Vojvodić Mladen',
+    featured: true,
     addressProperty: 'Ulica II br. 93, 23272 Kukljica',
     phones: ['023 373 636', '023 373 304', '023 311 101', '098 665 737'],
     email: 'tomislav.79vojvodic@gmail.com',
@@ -569,6 +579,7 @@ export const APARTMENTS: Apartment[] = [
   {
     slug: 'lonic-boris',
     name: 'Lonić Boris',
+    featured: true,
     addressProperty: 'Ulica VII 15A, 23272 Kukljica',
     phones: ['023 373 208', '023 231 350', '091 523 8585'],
     email: 'fotostudio.klik@gmail.com',
@@ -585,6 +596,7 @@ export const APARTMENTS: Apartment[] = [
   {
     slug: 'matacin-pasic-branka',
     name: 'Matacin-Pašić Branka',
+    featured: true,
     addressProperty: 'Ulica VII br. 19A, 23272 Kukljica',
     images: [],
   },
@@ -592,6 +604,7 @@ export const APARTMENTS: Apartment[] = [
   {
     slug: 'bacoka-ante',
     name: 'Bačoka Ante',
+    featured: true,
     addressProperty: 'Kukljica VIII 110F, 23272 Kukljica',
     phones: ['023 373 333', '091 598 4373'],
     email: 'martinabacoka@yahoo.com',
@@ -609,6 +622,7 @@ export const APARTMENTS: Apartment[] = [
   {
     slug: 'glavocic-dragana',
     name: 'Glavočić Dragana',
+    featured: true,
     addressProperty: 'Ulica VIII 38A, 23272 Kukljica',
     phones: ['023 305 836', '095 535 5663'],
     email: 'dragana.glavocic@gmail.com',
@@ -740,6 +754,7 @@ export const APARTMENTS: Apartment[] = [
   {
     slug: 'sipina-zoran',
     name: 'Sipina Zoran',
+    featured: true,
     addressProperty: 'Ulica IX br. 36C, 23272 Kukljica',
     phones: ['098 272 638', '099 675 7565'],
     email: 'zsipina@gmail.com',

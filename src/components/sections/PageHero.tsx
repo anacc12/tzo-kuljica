@@ -124,7 +124,7 @@ export default function PageHero({ title, subtitle, images = [], label, variant 
     <section
       style={{
         backgroundColor: isDark ? 'var(--dark)' : 'var(--light)',
-        paddingTop: '140px',
+        paddingTop: '180px',
         paddingBottom: images.length > 0 ? '40px' : '80px',
       }}
     >
@@ -144,7 +144,7 @@ export default function PageHero({ title, subtitle, images = [], label, variant 
         )}
 
         {/* Giant word-by-word reveal heading */}
-        <div className="flex flex-wrap justify-center gap-x-[0.4em] text-center mx-auto max-w-5xl">
+        <div className="flex flex-wrap justify-center gap-x-[22px] text-center mx-auto max-w-5xl">
           {words.map((word, i) => (
             <div key={i} className="overflow-hidden" style={{ paddingBottom: '0.15em', marginBottom: '-0.15em' }}>
               <motion.span
@@ -186,7 +186,7 @@ export default function PageHero({ title, subtitle, images = [], label, variant 
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.7, ease: EASE }}
-            className="mt-16 grid grid-cols-3 gap-4"
+            className="mt-20 grid grid-cols-3 gap-4"
             style={{ height: 'clamp(200px, 30vw, 400px)' }}
           >
             {images.slice(0, 3).map((src, i) => (

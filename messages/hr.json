@@ -240,7 +240,10 @@
   },
   "events": {
     "title": "Događanja",
-    "heroSubtitle": "Otkrijte događanja u Kukljici",
+    "heroHeading": "Otkrijte događanja u Kukljici",
+    "heroSubtitle": "Istražite sva planirana događanja u Kukljici",
+    "heroCta": "Pogledajte događanja",
+    "latestEvent": "Najnovije događanje",
     "findOutMore": "Saznajte Više",
     "noEvents": "Trenutno nema nadolazećih događanja.",
     "from": "Od",

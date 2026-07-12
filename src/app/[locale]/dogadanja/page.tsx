@@ -1,27 +1,28 @@
 import { getTranslations } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import Image from 'next/image'
-import PageHero from '@/components/sections/PageHero'
+import EventsHero from '@/components/sections/EventsHero'
 import FadeIn from '@/components/sections/FadeIn'
 import { getAllEvents } from '@/lib/sanity.queries'
 import { formatDate } from '@/lib/utils'
 
-const HERO_IMAGES = [
-  'https://cdn.prod.website-files.com/67e320f1dcdaf05e33698750/67e320f2dcdaf05e33698820_dining_1.webp',
-  'https://cdn.prod.website-files.com/67e320f1dcdaf05e33698750/67e320f2dcdaf05e3369881f_dining_2.webp',
-  'https://cdn.prod.website-files.com/67e320f1dcdaf05e33698750/67e320f2dcdaf05e3369881d_dining_3.webp',
-]
-
 export default async function EventsPage({ params: { locale } }: { params: { locale: string } }) {
   const t = await getTranslations('events')
   const events = await getAllEvents(locale).catch(() => [])
+  const latestEvent = events[0] ?? null
 
   return (
     <>
-      <PageHero title={t('title')} subtitle={t('heroSubtitle')} images={HERO_IMAGES}
-        label="Događanja" />
+      <EventsHero
+        heading={t('heroHeading')}
+        subtitle={t('heroSubtitle')}
+        ctaLabel={t('heroCta')}
+        badge={t('title')}
+        latestEvent={latestEvent}
+        locale={locale}
+      />
 
-      <section style={{ backgroundColor: 'var(--bg)', paddingTop: 100, paddingBottom: 120 }}>
+      <section id="events-list" style={{ backgroundColor: 'var(--bg)', paddingTop: 100, paddingBottom: 120 }}>
         <div className="tz-container">
           {/* Header row */}
           <div
@@ -126,8 +127,7 @@ export default async function EventsPage({ params: { locale } }: { params: { loc
                         color: 'rgba(22,35,27,0.45)',
                       }}
                     >
-                      <span>Događanje</span>
-                      <span>·</span>
+                      
                       <span>{event.startDate ? formatDate(event.startDate, locale) : ''}</span>
                       {event.location && (
                         <>
@@ -141,7 +141,7 @@ export default async function EventsPage({ params: { locale } }: { params: { loc
                     <h3
                       style={{
                         fontFamily: 'Instrument Serif, Georgia, serif',
-                        fontSize: 'clamp(1.3rem, 1.8vw, 1.65rem)',
+                        fontSize: 'clamp(2.3rem, 1.8vw, 1.65rem)',
                         fontWeight: 400,
                         lineHeight: 1.2,
                         letterSpacing: '-0.02em',
@@ -157,7 +157,7 @@ export default async function EventsPage({ params: { locale } }: { params: { loc
                       <p
                         style={{
                           fontFamily: 'Geist, system-ui, sans-serif',
-                          fontSize: 14,
+                          fontSize: 16,
                           lineHeight: 1.6,
                           color: 'rgba(22,35,27,0.55)',
                           display: '-webkit-box',

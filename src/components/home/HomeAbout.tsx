@@ -4,9 +4,9 @@ import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 
 const IMAGES = [
-  'https://cdn.prod.website-files.com/67e320f1dcdaf05e33698750/683f434913d13c4157070367_RR_04709.jpg',
-  'https://cdn.prod.website-files.com/67e320f1dcdaf05e33698750/683f4349f057f3c927cbbccc_RR_05250.jpg',
-  'https://cdn.prod.website-files.com/67e320f1dcdaf05e33698750/683f434965550e6a39598db1_RR_05195.jpg',
+  '/home/image-01.jpg',
+  '/home/image-02.jpg',
+  '/home/image-03.jpg',
 ]
 
 type Section = { label: string; text: string }

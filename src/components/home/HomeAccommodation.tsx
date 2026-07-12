@@ -4,46 +4,22 @@ import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { motion } from 'framer-motion'
 
-const APTS = [
-  {
-    name: 'Apartmani Lavanda',
-    img: 'https://cdn.prod.website-files.com/67e320f2dcdaf05e336987b9/686430210b7db83c91f02c24_BAC%CC%8CIC%CC%81%20EDO.jpg',
-    href: '/privatni-smjestaj',
-  },
-  {
-    name: 'Apartmani Sonja',
-    img: 'https://cdn.prod.website-files.com/67e320f2dcdaf05e336987b9/6864314d9305ffbb4836af8a_217249734_1488037248213012_71304037562245513_n.jpg',
-    href: '/privatni-smjestaj',
-  },
-  {
-    name: 'Apartmani Tuta',
-    img: 'https://cdn.prod.website-files.com/67e320f2dcdaf05e336987b9/686433110ac27170317deff3_244949136.jpg',
-    href: '/privatni-smjestaj',
-  },
-  {
-    name: 'Apartmani Kukljica',
-    img: 'https://cdn.prod.website-files.com/67e320f1dcdaf05e33698750/683f4349e8d275cab4059d83_Kukljica%20FOTO%20Matija%20Lipar-75.jpg',
-    href: '/privatni-smjestaj',
-  },
-  {
-    name: 'Holiday Park Zelena Punta',
-    img: 'https://cdn.prod.website-files.com/67e320f1dcdaf05e33698750/683f40bbc4c90c3044407ba7_DJI_20240709182237_0203_D.jpg',
-    href: '/holiday-park-zelena-punta',
-  },
-]
-
 const EASE = [0.16, 1, 0.3, 1]
 
-type Props = { label: string; title: string; cta: string; detailsLabel?: string }
+export type AptCard = {
+  slug: string
+  name: string
+  thumbnail: string
+}
 
-export default function HomeAccommodation({ label, title, cta, detailsLabel = 'Pogledaj detalje' }: Props) {
-  const doubled = [...APTS, ...APTS]
+type Props = { label: string; title: string; cta: string; detailsLabel?: string; apartments: AptCard[] }
+
+export default function HomeAccommodation({ label, title, cta, detailsLabel = 'Pogledaj detalje', apartments }: Props) {
+  const doubled = [...apartments, ...apartments]
 
   return (
     <section style={{ backgroundColor: 'var(--bg)', paddingTop: 140, paddingBottom: 140, overflow: 'hidden' }}>
       <div className="tz-container">
-        {/* <div className="divider mb-12" /> */}
-
         {/* Header */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 60, flexWrap: 'wrap' }}>
           <motion.div
@@ -53,7 +29,6 @@ export default function HomeAccommodation({ label, title, cta, detailsLabel = 'P
             transition={{ duration: 0.8, ease: EASE }}
             style={{ display: 'flex', flexDirection: 'column', gap: 10 }}
           >
-            {/* <span className="label-badge">{label}</span> */}
             <h2 style={{
               fontFamily: 'Instrument Serif, Georgia, serif',
               fontSize: 'clamp(2rem, 4vw, 3.5rem)',
@@ -96,14 +71,14 @@ export default function HomeAccommodation({ label, title, cta, detailsLabel = 'P
             display: 'flex',
             gap: 16,
             paddingLeft: 32,
-            animation: 'apt-scroll 35s linear infinite',
+            animation: 'apt-scroll 40s linear infinite',
             willChange: 'transform',
           }}
         >
           {doubled.map((apt, i) => (
             <Link
               key={i}
-              href={apt.href}
+              href={`/privatni-smjestaj/${apt.slug}` as '/privatni-smjestaj'}
               style={{
                 flexShrink: 0,
                 display: 'block',
@@ -116,12 +91,12 @@ export default function HomeAccommodation({ label, title, cta, detailsLabel = 'P
               }}
             >
               <Image
-                src={apt.img}
+                src={apt.thumbnail}
                 alt={apt.name}
                 fill
                 className="object-cover"
                 sizes="420px"
-                priority={i < APTS.length}
+                priority={i < apartments.length}
                 style={{ transition: 'transform 0.6s ease' }}
                 onMouseEnter={e => ((e.target as HTMLElement).style.transform = 'scale(1.04)')}
                 onMouseLeave={e => ((e.target as HTMLElement).style.transform = 'scale(1)')}

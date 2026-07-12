@@ -142,22 +142,32 @@ export default async function EventPage({ params }: { params: { locale: string; 
         >
           {/* LEFT — metadata */}
           <div>
-            <div style={{ borderTop: '1px solid rgba(22,35,27,0.1)' }}>
-              <MetaRow label="Datum" value={event.startDate ? formatDate(event.startDate, params.locale) : '—'} />
-              {event.endDate && event.endDate !== event.startDate && (
-                <MetaRow label="Kraj" value={formatDate(event.endDate, params.locale)} />
-              )}
-              {(event.startTime || event.endTime) && (
-                <MetaRow
-                  label="Vrijeme"
-                  value={`${event.startTime ?? ''}${event.endTime ? ` — ${event.endTime}` : ''}`}
-                />
-              )}
-              {event.location && (
-                <MetaRow label="Lokacija" value={event.location} />
-              )}
-              <MetaRow label="Kategorija" value="Događanje" />
-            </div>
+            {(() => {
+              const isHR = params.locale === 'hr'
+              const at = isHR ? 'u' : 'at'
+              const startLabel = isHR ? 'Početak' : 'Start'
+              const endLabel = isHR ? 'Kraj' : 'End'
+              const locationLabel = isHR ? 'Lokacija' : 'Location'
+              const categoryLabel = isHR ? 'Kategorija' : 'Category'
+              const categoryValue = isHR ? 'Događanje' : 'Event'
+
+              const startVal = event.startDate
+                ? `${formatDate(event.startDate, params.locale)}${event.startTime ? ` ${at} ${event.startTime}` : ''}`
+                : '–'
+
+              const endVal = event.endDate && event.endDate !== event.startDate
+                ? `${formatDate(event.endDate, params.locale)}${event.endTime ? ` ${at} ${event.endTime}` : ''}`
+                : null
+
+              return (
+                <div style={{ borderTop: '1px solid rgba(22,35,27,0.1)' }}>
+                  <MetaRow label={startLabel} value={startVal} />
+                  {endVal && <MetaRow label={endLabel} value={endVal} />}
+                  {event.location && <MetaRow label={locationLabel} value={event.location} />}
+                  <MetaRow label={categoryLabel} value={categoryValue} />
+                </div>
+              )
+            })()}
           </div>
 
           {/* RIGHT — content */}

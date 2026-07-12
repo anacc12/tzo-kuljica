@@ -240,7 +240,10 @@
   },
   "events": {
     "title": "Events",
-    "heroSubtitle": "Discover events in Kukljica",
+    "heroHeading": "Discover events in Kukljica",
+    "heroSubtitle": "Explore all planned events in Kukljica",
+    "heroCta": "View events",
+    "latestEvent": "Latest event",
     "findOutMore": "Find Out More",
     "noEvents": "No upcoming events at the moment.",
     "from": "From",

@@ -44,7 +44,7 @@ export default function HomeHero({ heading, ctaLabel, ctaSecondary, subtitle, ba
           </motion.div>
 
           {/* Giant heading — word by word reveal */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0.25em', marginBottom: '20px' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '22px', marginBottom: '20px' }}>
             {WORDS.map((word, i) => (
               <div
                 key={i}
@@ -76,7 +76,7 @@ export default function HomeHero({ heading, ctaLabel, ctaSecondary, subtitle, ba
               initial={{ y: '100%', opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.55, ease: EASE }}
-              style={{ color: 'rgba(249,245,235,0.7)', fontSize: 17, maxWidth: 520, fontFamily: 'Inter', lineHeight: "1.4em", marginBottom: "12px" }}
+              style={{ color: 'rgba(249,245,235,0.7)', fontSize: 17, maxWidth: 520, fontFamily: 'Geist, sans-serif', lineHeight: "1.4em", marginBottom: "12px" }}
             >
               {subtitle}
             </motion.p>

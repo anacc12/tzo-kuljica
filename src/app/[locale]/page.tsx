@@ -7,6 +7,8 @@ import HomeExplore from '@/components/home/HomeExplore'
 import HomeAbout from '@/components/home/HomeAbout'
 import HomeAccommodation from '@/components/home/HomeAccommodation'
 import HomeNews from '@/components/home/HomeNews'
+import { APARTMENTS } from '@/data/apartments'
+import { getFirstImage } from '@/lib/gallery'
 
 export default async function HomePage({ params: { locale } }: { params: { locale: string } }) {
   const t = await getTranslations('home')
@@ -15,6 +17,11 @@ export default async function HomePage({ params: { locale } }: { params: { local
     getFeaturedArticles(locale).catch(() => []),
     getAllEvents(locale).catch(() => []),
   ])
+
+  const featuredApts = APARTMENTS
+    .filter(a => a.featured)
+    .map(a => ({ slug: a.slug, name: a.name, thumbnail: getFirstImage(a.slug) ?? '' }))
+    .filter(a => a.thumbnail)
 
   const newsItems = [...featured, ...events].slice(0, 4)
 
@@ -66,6 +73,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
         title={t('accommodationTitle')}
         cta={t('browseAccommodation')}
         detailsLabel={t('viewDetails')}
+        apartments={featuredApts}
       />
 
       {/* 7. News — dark section, 3-col article cards */}

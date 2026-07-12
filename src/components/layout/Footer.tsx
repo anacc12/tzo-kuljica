@@ -141,7 +141,7 @@ export default function Footer() {
               </Link>
 
               {/* Newsletter */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+              {/* <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                 <p style={{ fontFamily: 'Geist, sans-serif', fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(249,245,235,0.5)', fontWeight: 500 }}>
                   {t('newsletterLabel')}
                 </p>
@@ -177,7 +177,7 @@ export default function Footer() {
                 <p style={{ fontFamily: 'Geist, sans-serif', fontSize: 12, color: 'rgba(249,245,235,0.35)', lineHeight: 1.5 }}>
                   {t('newsletterDisclaimer')}
                 </p>
-              </div>
+              </div> */}
 
               {/* Contact info */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontFamily: 'Geist, sans-serif', fontSize: 13, color: 'rgba(249,245,235,0.5)' }}>
@@ -218,6 +218,41 @@ export default function Footer() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* EU funding strip */}
+          <div
+            style={{
+              backgroundColor: '#EBECF3',
+              borderRadius: 8,
+              padding: '20px 28px',
+              marginBottom: 32,
+              display: 'flex',
+              alignItems: 'center',
+              gap: 32,
+              flexWrap: 'wrap',
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: 24, flexWrap: 'wrap' }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/footer-logos/logo-financira-eu.png" alt="Financira Europska unija" style={{ height: 44, width: 'auto', objectFit: 'contain' }} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/footer-logos/logo-leader.png" alt="LEADER" style={{ height: 44, width: 'auto', objectFit: 'contain' }} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/footer-logos/logo-lag-mareta.png" alt="LAG Mareta" style={{ height: 44, width: 'auto', objectFit: 'contain' }} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/footer-logos/logo-sp-zpp.png" alt="SP ZPP" style={{ height: 44, width: 'auto', objectFit: 'contain' }} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/footer-logos/logo-ministarstvo.png" alt="Ministarstvo poljoprivrede" style={{ height: 44, width: 'auto', objectFit: 'contain' }} />
+            </div>
+            <div style={{ marginLeft: 'auto', borderLeft: '1px solid rgba(0,0,0,0.1)', paddingLeft: 28 }}>
+              <p style={{ fontFamily: 'Geist, sans-serif', fontSize: 10, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(0,0,0,0.4)', marginBottom: 4 }}>
+                Sufinancirano sredstvima Europske unije
+              </p>
+              <p style={{ fontFamily: 'Geist, sans-serif', fontSize: 12, fontWeight: 500, color: 'rgba(0,0,0,0.75)', maxWidth: 280, lineHeight: 1.4 }}>
+                Pametna Kukljica — digitalni informacijski sustav za zajednicu i turizam
+              </p>
             </div>
           </div>
 
@@ -269,6 +304,16 @@ export default function Footer() {
               >
                 {t('usefulLinks')}
               </Link>
+              <a
+                href="https://mint.gov.hr/pristup-informacijama/propisi/propisi-iz-turizma/107"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ fontFamily: 'Geist, sans-serif', fontSize: 12, color: 'rgba(249,245,235,0.35)', textDecoration: 'none', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase' }}
+                onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = 'rgba(249,245,235,0.7)')}
+                onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = 'rgba(249,245,235,0.35)')}
+              >
+                Propisi u turizmu
+              </a>
             </div>
           </div>
 

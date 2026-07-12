@@ -92,7 +92,7 @@ export default function ActiveVacationPage() {
                   <h2
                     style={{
                       fontFamily: 'Instrument Serif, Georgia, serif',
-                      fontSize: 'clamp(2rem, 3.2vw, 3rem)',
+                      fontSize: 'clamp(4rem, 3.2vw, 3rem)',
                       fontWeight: 400,
                       lineHeight: 1.12,
                       letterSpacing: '-0.025em',
