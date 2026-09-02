@@ -1,17 +1,20 @@
 import { notFound } from 'next/navigation'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import Image from 'next/image'
 import PageHero from '@/components/sections/PageHero'
 import { APARTMENTS } from '@/data/apartments'
 import { getGalleryGroups } from '@/lib/gallery'
+import { routing } from '@/i18n/routing'
 
 interface Props {
   params: { slug: string; locale: string }
 }
 
 export function generateStaticParams() {
-  return APARTMENTS.map(a => ({ slug: a.slug }))
+  return routing.locales.flatMap(locale =>
+    APARTMENTS.map(a => ({ locale, slug: a.slug }))
+  )
 }
 
 export async function generateMetadata({ params }: Props) {
@@ -21,6 +24,8 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function ApartmentPage({ params }: Props) {
+  setRequestLocale(params.locale)
+
   const apt = APARTMENTS.find(a => a.slug === params.slug)
   if (!apt) notFound()
 

@@ -1,11 +1,15 @@
 import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
-import { getMessages } from 'next-intl/server'
+import { getMessages, setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import '../globals.css'
+
+export function generateStaticParams() {
+  return routing.locales.map(locale => ({ locale }))
+}
 
 export const metadata: Metadata = {
   title: 'TZO Kukljica',
@@ -26,6 +30,8 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
   if (!routing.locales.includes(locale as 'hr' | 'en')) {
     notFound()
   }
+
+  setRequestLocale(locale)
 
   const messages = await getMessages()
 
