@@ -75,7 +75,7 @@ export default function HomeNews({ articles, label, title, locale }: Props) {
                 <Link href={href} style={{ display: 'block', textDecoration: 'none' }}>
                   {/* Image */}
                   <div style={{ position: 'relative', aspectRatio: '16/9', overflow: 'hidden', borderRadius: 4, marginBottom: 20 }}>
-                    {article.thumbnail ? (
+                    {article.thumbnail?.asset?.url ? (
                       <Image
                         src={article.thumbnail.asset.url}
                         alt={article.title}

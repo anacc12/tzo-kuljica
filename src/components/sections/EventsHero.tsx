@@ -191,7 +191,7 @@ export default function EventsHero({
                   padding: 8,
                 }}
               >
-                {latestEvent.thumbnail && (
+                {latestEvent.thumbnail?.asset?.url && (
                   <div style={{ position: 'relative', aspectRatio: '16/9', overflow: 'hidden', borderRadius: 4, marginBottom: 10 }}>
                     <Image
                       src={latestEvent.thumbnail.asset.url}

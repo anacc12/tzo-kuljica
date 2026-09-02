@@ -89,7 +89,7 @@ export default async function EventsPage({ params: { locale } }: { params: { loc
                         backgroundColor: 'rgba(17,21,46,0.06)',
                       }}
                     >
-                      {event.thumbnail ? (
+                      {event.thumbnail?.asset?.url ? (
                         <Image
                           src={event.thumbnail.asset.url}
                           alt={event.title}

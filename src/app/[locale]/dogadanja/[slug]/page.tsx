@@ -7,11 +7,12 @@ import { formatDate } from '@/lib/utils'
 
 const portableTextComponents = {
   types: {
-    image: ({ value }: { value: { asset: { url: string }; alt?: string } }) => (
-      <div style={{ position: 'relative', aspectRatio: '16/9', borderRadius: 8, overflow: 'hidden', margin: '40px 0' }}>
-        <Image src={value.asset.url} alt={value.alt || ''} fill className="object-cover" sizes="(max-width: 768px) 100vw, 800px" />
-      </div>
-    ),
+    image: ({ value }: { value: { asset?: { url: string } | null; alt?: string } }) =>
+      value.asset?.url ? (
+        <div style={{ position: 'relative', aspectRatio: '16/9', borderRadius: 8, overflow: 'hidden', margin: '40px 0' }}>
+          <Image src={value.asset.url} alt={value.alt || ''} fill className="object-cover" sizes="(max-width: 768px) 100vw, 800px" />
+        </div>
+      ) : null,
   },
   block: {
     h2: ({ children }: { children?: React.ReactNode }) => (
@@ -109,7 +110,7 @@ export default async function EventPage({ params }: { params: { locale: string; 
         </h1>
 
         {/* Full-width image */}
-        {event.thumbnail && (
+        {event.thumbnail?.asset?.url && (
           <div
             style={{
               position: 'relative',
@@ -203,7 +204,7 @@ export default async function EventPage({ params }: { params: { locale: string; 
                   marginTop: 48,
                 }}
               >
-                {event.gallery.map((img, i) => (
+                {event.gallery.filter(img => img.asset?.url).map((img, i) => (
                   <div key={i} style={{ position: 'relative', aspectRatio: '4/3', borderRadius: 6, overflow: 'hidden' }}>
                     <Image src={img.asset.url} alt={img.alt || event.title} fill className="object-cover" sizes="300px" />
                   </div>

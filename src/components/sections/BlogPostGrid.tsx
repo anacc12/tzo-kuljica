@@ -82,7 +82,7 @@ export default function BlogPostGrid({ posts, heading, label, category, emptyTex
                       backgroundColor: 'rgba(17,21,46,0.06)',
                     }}
                   >
-                    {post.thumbnail ? (
+                    {post.thumbnail?.asset?.url ? (
                       <Image
                         src={post.thumbnail.asset.url}
                         alt={post.title}
